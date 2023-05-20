@@ -70,10 +70,10 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
 
                   <nav className="mt-4">
                     <ul className="space-y-1.5 text-sm">
-                      <LPFooterLink link="/#about" title="About BudgetConnect" />
-                      <LPFooterLink link="/coming-soon" title="Clients" />
-                      <LPFooterLink link="/coming-soon" title="Testimonials" />
-                      <LPFooterLink link="#contact" title="Contact" />
+                      <LPFooterLink link="https://github.com/budget-connect/frontend" title="About BudgetConnect" />
+                      <LPFooterLink link="https://github.com/budget-connect/frontend" title="Clients" />
+                      <LPFooterLink link="https://github.com/budget-connect/frontend" title="Testimonials" />
+                      <LPFooterLink link="https://github.com/budget-connect/frontend" title="Contact" />
                     </ul>
                   </nav>
                 </div>
@@ -84,15 +84,14 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
                   <nav className="mt-4">
                     <ul className="space-y-1.5 text-sm">
                       <LPFooterLink
-                        link="/auth/register"
-                        title="Credit cards"
+                        link="https://github.com/budget-connect/frontend"
+                        title="Budgeting App"
                       />
-                      <LPFooterLink link="/auth/register" title="Investments" />
+                      <LPFooterLink link="https://github.com/budget-connect/frontend" title="Template" />
                       <LPFooterLink
-                        link="/auth/register"
-                        title="Credit score check"
+                        link="https://github.com/budget-connect/frontend"
+                        title="AI recommendation"
                       />
-                      <LPFooterLink link="/auth/register" title="Loans" />
                     </ul>
                   </nav>
                 </div>
@@ -102,8 +101,8 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
 
                   <nav className="mt-4">
                     <ul className="space-y-1.5 text-sm">
-                      <LPFooterLink link="/auth/register" title="FAQ" />
-                      <LPFooterLink link="/auth/register" title="Blog" />
+                      <LPFooterLink link="https://github.com/budget-connect/frontend" title="FAQ" />
+                      <LPFooterLink link="https://github.com/budget-connect/frontend" title="Blog" />
                     </ul>
                   </nav>
                 </div>
@@ -113,24 +112,23 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
                 <p className="text-center lg:text-left">
                   <LPFooterLink
                     underline
-                    link="/coming-soon"
+                    link="https://github.com/budget-connect/frontend"
                     title="Privacy Policy"
                   />{" "}
                   &nbsp;
                   <LPFooterLink
                     underline
-                    link="/coming-soon"
+                    link="https://github.com/budget-connect/frontend"
                     title="Terms & Conditions"
                   />{" "}
                   &nbsp;
-                  {/* <LPFooterLink link="/" title="Cookies" underline /> */}
                 </p>
 
                 {/* <p></p> */}
                 <div className="mt-6 flex justify-center gap-4 lg:justify-start">
                   <a
                     className=" hover:/75 transition"
-                    href="https://www.facebook.com/BFG-Interactive-Media-107876375414422"
+                    href="https://github.com/budget-connect/frontend"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -152,7 +150,7 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
 
                   <a
                     className=" hover:/75 transition"
-                    href="https://www.instagram.com/bfginteractive/"
+                    href="https://github.com/budget-connect/frontend"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -174,7 +172,7 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
 
                   <a
                     className=" hover:/75 transition"
-                    href="https://twitter.com/home"
+                    href="https://github.com/budget-connect/frontend"
                     target="_blank"
                     rel="noreferrer"
                   >

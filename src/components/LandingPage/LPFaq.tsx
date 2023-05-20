@@ -156,7 +156,7 @@ const LPFaq: React.FC<ILPFaqProps> = () => {
           </li>
         </ul>
         <div className="mt-20 flex justify-center">
-          <Link href="#">
+          <Link href="https://github.com/budget-connect/frontend">
             <Button>Still have questions?</Button>
           </Link>
         </div>
