@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] });
 export default function Portfolio() {
   return (
     <Layout>
-      <div className="div">
+      <div className="my-12 flex">
         <CategoryItemList />
       </div>
     </Layout>

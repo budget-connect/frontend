@@ -33,7 +33,7 @@ export const CategoryItemList: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="w-full">
       {categoryItems.map((id) => (
         <CategoryItem
           key={id}

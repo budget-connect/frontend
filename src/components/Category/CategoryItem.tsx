@@ -41,7 +41,7 @@ export const CategoryItem: React.FC<CategoryItemProps> = ({
       price &&
       spendingItems.every((item) => item.name && item.price)
     ) {
-      // Notify the parent component that the CategoryItem is filled out
+      // Notify the parent component that the CategoryItem is filled out, for OPEN API integration
       onCompleted({ category: selectedCategory, price, items: spendingItems });
     }
   }, [selectedCategory, price, spendingItems, onCompleted]);
