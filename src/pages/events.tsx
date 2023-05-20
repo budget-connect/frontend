@@ -1,44 +1,44 @@
 import { Card, Metric, Text, Flex, Grid, Title, BarList } from '@tremor/react';
 import Layout from '@/components/Layout/Layout';
 
-const website = [
-  { name: '/home', value: 1230 },
-  { name: '/contact', value: 751 },
-  { name: '/gallery', value: 471 },
-  { name: '/august-discount-offer', value: 280 },
-  { name: '/case-studies', value: 78 }
+const income = [
+  { name: 'salary', value: 1230 },
+  { name: 'contact', value: 751 },
+  { name: 'gallery', value: 471 },
+  { name: 'august-discount-offer', value: 280 },
+  { name: 'case-studies', value: 78 }
 ];
 
-const shop = [
-  { name: '/home', value: 453 },
-  { name: '/imprint', value: 351 },
-  { name: '/shop', value: 271 },
-  { name: '/pricing', value: 191 }
+const expenses = [
+  { name: 'food', value: 453 },
+  { name: 'imprint', value: 351 },
+  { name: 'shop', value: 271 },
+  { name: 'pricing', value: 191 }
 ];
 
-const app = [
-  { name: '/shop', value: 789 },
-  { name: '/product-features', value: 676 },
-  { name: '/about', value: 564 },
-  { name: '/login', value: 234 },
-  { name: '/downloads', value: 191 }
+const budget = [
+  { name: 'shop', value: 789 },
+  { name: 'product-features', value: 676 },
+  { name: 'about', value: 564 },
+  { name: 'login', value: 234 },
+  { name: 'downloads', value: 191 }
 ];
 
 const data = [
   {
-    category: 'Website',
+    category: 'Income',
     stat: '10,234',
-    data: website
+    data: income
   },
   {
-    category: 'Online Shop',
+    category: 'Expense',
     stat: '12,543',
-    data: shop
+    data: expenses
   },
   {
-    category: 'Mobile App',
+    category: 'Budget',
     stat: '2,543',
-    data: app
+    data: budget
   }
 ];
 
@@ -51,17 +51,17 @@ const categories: {
   metricPrev: string;
 }[] = [
   {
-    title: 'Sales',
+    title: 'Income',
     metric: '$ 12,699',
     metricPrev: '$ 9,456'
   },
   {
-    title: 'Profit',
+    title: 'Expense',
     metric: '$ 40,598',
     metricPrev: '$ 45,564'
   },
   {
-    title: 'Customers',
+    title: 'Budget',
     metric: '1,072',
     metricPrev: '856'
   }
@@ -100,11 +100,11 @@ export default function Events() {
                 alignItems="baseline"
               >
                 <Metric>{item.stat}</Metric>
-                <Text>Total views</Text>
+                <Text>Total</Text>
               </Flex>
               <Flex className="mt-6">
-                <Text>Pages</Text>
-                <Text className="text-right">Views</Text>
+                <Text>Breakdown</Text>
+                <Text className="text-right">SGD</Text>
               </Flex>
               <BarList
                 className="mt-2"
