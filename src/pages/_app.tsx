@@ -10,18 +10,18 @@ export default function App({
   pageProps: { session, ...pageProps },
 }: AppProps) {
   // additional useState required as the code sample in docs don't work
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  // const [isDarkMode, setIsDarkMode] = useState(false);
 
-  useEffect(() => {
-    setIsDarkMode(localStorage.getItem('theme') === 'dark');
-  }, []);
+  // useEffect(() => {
+  //   setIsDarkMode(localStorage.getItem('theme') === 'dark');
+  // }, []);
 
   return (
     <SessionProvider session={session}>
       <Flowbite
-        theme={{
-          dark: isDarkMode,
-        }}
+      // theme={{
+      //   dark: isDarkMode,
+      // }}
       >
         <Component {...pageProps} />
       </Flowbite>

@@ -27,7 +27,7 @@ const links = [
 
 const Header = () => {
   const router = useRouter();
-  const [mode, , toggleMode] = useThemeMode();
+  // const [mode, , toggleMode] = useThemeMode();
   const { status } = useSession();
 
   return (
@@ -39,7 +39,7 @@ const Header = () => {
           </span>
         </Navbar.Brand>
         <div className="flex md:order-2">
-          <DarkThemeToggle
+          {/* <DarkThemeToggle
             onClick={() => {
               toggleMode();
               if (mode === 'dark') {
@@ -48,7 +48,7 @@ const Header = () => {
                 localStorage.setItem('theme', 'dark');
               }
             }}
-          />
+          /> */}
           {status === 'authenticated' ? (
             <Button className="ml-2" onClick={() => signOut()}>
               Logout
