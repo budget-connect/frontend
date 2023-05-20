@@ -1,9 +1,37 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import Image from 'next/image';
+import { Inter } from 'next/font/google';
+import clientPromise from '@/lib/mongodb';
+import { InferGetServerSidePropsType } from 'next';
 
-const inter = Inter({ subsets: ['latin'] })
+export async function getServerSideProps() {
+  try {
+    await clientPromise;
+    // `await clientPromise` will use the default database passed in the MONGODB_URI
+    // However you can use another database (e.g. myDatabase) by replacing the `await clientPromise` with the following code:
+    //
+    // `const client = await clientPromise`
+    // `const db = client.db("myDatabase")`
+    //
+    // Then you can execute queries against your database like so:
+    // db.find({}) or any of the MongoDB Node Driver commands
 
-export default function Home() {
+    return {
+      props: { isConnected: true },
+    };
+  } catch (e) {
+    console.error(e);
+    return {
+      props: { isConnected: false },
+    };
+  }
+}
+
+const inter = Inter({ subsets: ['latin'] });
+
+export default function Home({
+  isConnected,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  console.log(isConnected);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
@@ -120,5 +148,5 @@ export default function Home() {
         </a>
       </div>
     </main>
-  )
+  );
 }
