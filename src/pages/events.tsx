@@ -3,10 +3,10 @@ import Layout from '@/components/Layout/Layout';
 
 const income = [
   { name: 'salary', value: 1230 },
-  { name: 'contact', value: 751 },
-  { name: 'gallery', value: 471 },
-  { name: 'august-discount-offer', value: 280 },
-  { name: 'case-studies', value: 78 }
+  { name: 'interest', value: 751 },
+  { name: 'dividend', value: 471 },
+  { name: 'rental', value: 280 },
+  { name: 'side hustle', value: 78 }
 ];
 
 const expenses = [
