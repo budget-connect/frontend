@@ -10,6 +10,7 @@ const nextConfig = {
       "i.postimg.cc",
       "images.unsplash.com",
       "img.freepik.com",
+      "avatars.githubusercontent.com"
     ],
   },
 };
