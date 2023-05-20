@@ -65,7 +65,7 @@ const LPSocialProof: React.FC<ILPSocialProofProps> = () => {
                 <div className="mt-10 flex items-center">
                   <Image
                     className="h-11 w-11 flex-shrink-0 rounded-full object-cover"
-                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                    src="https://avatars.githubusercontent.com/u/7147135?v=4"
                     alt="Avatar"
                     width={44}
                     height={44}
@@ -92,14 +92,14 @@ const LPSocialProof: React.FC<ILPSocialProofProps> = () => {
               <div className="mt-4 flex items-center">
                 <Image
                   className="h-11 w-11 flex-shrink-0 rounded-full object-cover"
-                  src="https://images.unsplash.com/photo-1614283233556-f35b0c801ef1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                  src="https://avatars.githubusercontent.com/u/19247856?v=4"
                   alt="Avatar"
                   width={44}
                   height={44}
                 />
                 <div className="ml-4">
-                  <p className="text-base font-bold">Mathilde Frankistu</p>
-                  <p className="mt-0.5 text-sm">CEO, Mavoline</p>
+                  <p className="text-base font-bold">Jun Xiong</p>
+                  <p className="mt-0.5 text-sm">BudgetConnect team</p>
                 </div>
               </div>
             </div>
@@ -116,14 +116,14 @@ const LPSocialProof: React.FC<ILPSocialProofProps> = () => {
               <div className="mt-4 flex items-center">
                 <Image
                   className="h-11 w-11 flex-shrink-0 rounded-full object-cover"
-                  src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                  src="https://avatars.githubusercontent.com/u/9083891?v=4"
                   alt="Avatar"
                   width={44}
                   height={44}
                 />
                 <div className="ml-4">
-                  <p className="text-base font-bold">Jacob Jones</p>
-                  <p className=" mt-0.5 text-sm">Youtube Personality</p>
+                  <p className="text-base font-bold">Marcus Pang</p>
+                  <p className=" mt-0.5 text-sm">BudgetConnect team</p>
                 </div>
               </div>
             </div>
@@ -140,14 +140,14 @@ const LPSocialProof: React.FC<ILPSocialProofProps> = () => {
               <div className="mt-4 flex items-center">
                 <Image
                   className="h-11 w-11 flex-shrink-0 rounded-full object-cover"
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                  src="https://avatars.githubusercontent.com/u/41845017?v=4"
                   alt="Avatar"
                   width={44}
                   height={44}
                 />
                 <div className="ml-4">
-                  <p className="text-base font-bold">Jenny Wilson</p>
-                  <p className=" mt-0.5 text-sm">Esports Commentator</p>
+                  <p className="text-base font-bold">Yongliong</p>
+                  <p className=" mt-0.5 text-sm">BudgetConnect team</p>
                 </div>
               </div>
             </div>
