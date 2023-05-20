@@ -5,17 +5,20 @@ import Layout from '@/components/Layout/Layout';
 
 const data = [
   {
-    Month: 'Jan 21',
+    Month: 'May 2023',
+    HighSavings: 890,
     Savings: 890,
     NoSavings: 890
   },
   {
-    Month: 'Feb 21',
+    Month: 'May 2028',
+    HighSavings: 2100,
     Savings: 1890,
     NoSavings: 1398
   },
   {
-    Month: 'Jan 22',
+    Month: 'May 2033',
+    HighSavings: 4500,
     Savings: 3890,
     NoSavings: 2980
   }
@@ -34,9 +37,9 @@ export default function Analytics() {
         <AreaChart
           className="mt-4 h-80"
           data={data}
-          categories={['Savings', 'NoSavings']}
+          categories={['Savings', 'NoSavings', 'HighSavings']}
           index="Month"
-          colors={['indigo', 'fuchsia']}
+          colors={['indigo', 'fuchsia', 'black']}
           valueFormatter={valueFormatter}
         />
       </Card>
