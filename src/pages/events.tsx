@@ -11,17 +11,17 @@ const income = [
 
 const expenses = [
   { name: 'food', value: 453 },
-  { name: 'imprint', value: 351 },
-  { name: 'shop', value: 271 },
-  { name: 'pricing', value: 191 }
+  { name: 'gas', value: 351 },
+  { name: 'groceries', value: 271 },
+  { name: 'education', value: 191 }
 ];
 
 const budget = [
-  { name: 'shop', value: 789 },
-  { name: 'product-features', value: 676 },
-  { name: 'about', value: 564 },
-  { name: 'login', value: 234 },
-  { name: 'downloads', value: 191 }
+  { name: 'HDB', value: 789 },
+  { name: 'family', value: 676 },
+  { name: 'car', value: 564 },
+  { name: 'education', value: 234 },
+  { name: 'hobby', value: 191 }
 ];
 
 const data = [
