@@ -8,10 +8,10 @@ const LPFaq: React.FC<ILPFaqProps> = () => {
     <>
       <div className="relative mx-auto w-full py-16 px-5 font-sans sm:px-20 md:max-w-screen-lg lg:py-24">
         <h1 className="mb-5 text-center font-sans text-3xl font-semibold md:text-5xl">
-          frequently asked questions
+          Frequently asked questions
         </h1>
         <p className="mb-12 text-center text-lg text-gray-500">
-          we have written down answers to some of the frequently asked
+          We have written down answers to some of the frequently asked
           questions. but, if you still have any queries, feel free to ping us on
           chat.
         </p>

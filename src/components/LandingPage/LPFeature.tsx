@@ -26,7 +26,7 @@ const LPFeature: React.FC<ILPFeatureProps> = () => {
             </svg>
           </div>
           <h2 className="mb-10 max-w-lg text-4xl font-semibold leading-snug lg:text-5xl lg:leading-snug">
-            a revolutionary solution to help you develop healthy savings and investing habits
+            A revolutionary solution to help you develop healthy savings and investing habits
           </h2>
           <div className="grid gap-y-12 gap-x-8 lg:grid-cols-2">
             <div>

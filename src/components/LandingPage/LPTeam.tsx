@@ -9,17 +9,12 @@ const LPTeam: React.FC<ILPTeamProps> = () => {
         <div className="container mx-auto px-6 py-10">
           <div className="sm:text-center">
             <h2 className="text-3xl font-semibold leading-7 sm:text-4xl xl:text-5xl">
-              our <br className="sm:hidden" />
-              <span className="text-accent-focus">executive</span> team.
+              Our team
             </h2>
             <hr className="mt-4 h-1 w-32 border-none bg-[#0b1840] sm:mx-auto sm:mt-8" />
           </div>
           <p className="mx-auto my-6 max-w-2xl text-center">
-            over the past year, our team has been working tirelessly to expand
-            our company into new markets. we have a wealth of experience in the
-            industry and a proven track record of success. we are committed to
-            providing the best possible service to our customers and to
-            exceeding their expectations.
+            The BudgetConnect team comprises students from the National University of Singapore, with a proven track record of developing innovative solutions. Our team brings together expertise in finance, technology, and user experience, ensuring that BudgetConnect delivers a seamless and intuitive user journey. With our shared passion for empowering individuals to achieve financial success, we are confident in our ability to drive meaningful change.
           </p>
 
           <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 xl:mt-16 xl:grid-cols-4">
