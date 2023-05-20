@@ -12,8 +12,7 @@ const LPFaq: React.FC<ILPFaqProps> = () => {
         </h1>
         <p className="mb-12 text-center text-lg text-gray-500">
           We have written down answers to some of the frequently asked
-          questions. but, if you still have any queries, feel free to ping us on
-          chat.
+          questions. but, if you still have any queries, feel free to ping us.
         </p>
         <ul className="space-y-4">
           <li className="text-left">
@@ -38,17 +37,13 @@ const LPFaq: React.FC<ILPFaqProps> = () => {
               </svg>
               <div className="relative ml-4 cursor-pointer select-none items-center py-4 pr-2">
                 <h3 className="text-sm lg:text-base ">
-                  Is there a free trial with BudgetConnect?
+                  What is Budget Conncet problem statement?
                 </h3>
               </div>
               <div className="max-h-0 overflow-hidden transition-all duration-500 peer-checked:max-h-96">
                 <div className="p-5">
                   <p className="text-sm">
-                    Lorem ipsum, consectetur adipisicing elit. Adipisci
-                    eligendi, recusandae voluptatum distinctio facilis
-                    necessitatibus aperiam ut? Dolor mollitia modi aliquam, non
-                    sint at reprehenderit commodi dignissimos quo unde
-                    asperiores officiis quos laboriosam similique nihil.
+                  In today's fast-paced world, it's easy to overlook the significance of savings and investing. Individuals often leave substantial funds in low-yield accounts, missing out on potential returns. Furthermore, some individuals lack the knowledge and guidance to make informed investment decisions, exposing themselves to unnecessary risks.
                   </p>
                 </div>
               </div>
@@ -77,17 +72,13 @@ const LPFaq: React.FC<ILPFaqProps> = () => {
               </svg>
               <div className="relative ml-4 cursor-pointer select-none items-center py-4 pr-2">
                 <h3 className="text-sm lg:text-base ">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit?
+                  What is BudgetConnect Business Model?
                 </h3>
               </div>
               <div className="max-h-0 overflow-hidden transition-all duration-500 peer-checked:max-h-96">
                 <div className="p-5">
                   <p className="text-sm">
-                    Lorem ipsum, <b>dolor sit amet</b> consectetur adipisicing
-                    elit. Adipisci eligendi, recusandae voluptatum distinctio
-                    facilis necessitatibus aperiam ut? Dolor mollitia modi
-                    aliquam, non sint at reprehenderit commodi dignissimos quo
-                    unde asperiores officiis quos laboriosam similique nihil.
+                  BudgetConnect operates on a subscription-based model, offering users different tiers of access based on their needs and preferences. The platform also collaborates with trusted financial institutions to provide seamless integration with existing bank accounts and investment platforms. By offering a range of value-added services, such as educational resources and personalized financial coaching, BudgetConnect creates multiple revenue streams while delivering exceptional value to its users.
                   </p>
                 </div>
               </div>
@@ -116,18 +107,13 @@ const LPFaq: React.FC<ILPFaqProps> = () => {
               </svg>
               <div className="relative ml-4 cursor-pointer select-none items-center py-4 pr-2">
                 <h3 className="text-sm lg:text-base ">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Distinctio.?
+                  What are Budget Connect competitions?
                 </h3>
               </div>
               <div className="max-h-0 overflow-hidden transition-all duration-500 peer-checked:max-h-96">
                 <div className="p-5">
                   <p className="text-sm">
-                    Lorem ipsum, <b>dolor sit amet</b> consectetur adipisicing
-                    elit. Adipisci eligendi, recusandae voluptatum distinctio
-                    facilis necessitatibus aperiam ut? Dolor mollitia modi
-                    aliquam, non sint at reprehenderit commodi dignissimos quo
-                    unde asperiores officiis quos laboriosam similique nihil.
+                  While there are existing financial management apps in the market, BudgetConnect stands out with its specific focus on cultivating healthy savings and investing habits. Our unique combination of advanced technology, personalized guidance, and user-friendly interfaces sets us apart from traditional budgeting apps or investment platforms. By providing a comprehensive solution that addresses the root causes of poor savings and investing habits, BudgetConnect establishes a competitive edge.
                   </p>
                 </div>
               </div>
@@ -156,17 +142,13 @@ const LPFaq: React.FC<ILPFaqProps> = () => {
               </svg>
               <div className="relative ml-4 cursor-pointer select-none items-center py-4 pr-2">
                 <h3 className="border-indigo-600 text-sm lg:text-base ">
-                  Lorem ipsum dolor sit amet.?
+                  What is BudgetConnect?
                 </h3>
               </div>
               <div className="max-h-0 overflow-hidden transition-all duration-500 peer-checked:max-h-96">
                 <div className="p-5">
                   <p className="text-sm">
-                    Lorem ipsum, <b>dolor sit amet</b> consectetur adipisicing
-                    elit. Adipisci eligendi, recusandae voluptatum distinctio
-                    facilis necessitatibus aperiam ut? Dolor mollitia modi
-                    aliquam, non sint at reprehenderit commodi dignissimos quo
-                    unde asperiores officiis quos laboriosam similique nihil.
+                  BudgetConnect is the digital solution that individuals need to develop healthy savings and investing habits. By leveraging technology, expert guidance, and personalized features, BudgetConnect breaks down the barriers to financial success, enabling users to make informed decisions and build a secure future. Join us on this transformative journey towards a world where everyone can enjoy the benefits of easy savings.
                   </p>
                 </div>
               </div>
@@ -174,7 +156,7 @@ const LPFaq: React.FC<ILPFaqProps> = () => {
           </li>
         </ul>
         <div className="mt-20 flex justify-center">
-          <Link href="/questions">
+          <Link href="#">
             <Button>Still have questions?</Button>
           </Link>
         </div>

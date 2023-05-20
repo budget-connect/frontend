@@ -7,8 +7,7 @@ const LPStats: React.FC<ILPStatsProps> = () => {
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="sm:text-center">
           <h2 className="text-3xl font-semibold leading-7  sm:text-4xl xl:text-5xl">
-            we are <br className="sm:hidden" />
-            growing <span className="text-accent-focus">rapidly.</span>
+            Market Potential
           </h2>
           <hr className="mt-4 h-1 w-32 border-none bg-[#0b1840] sm:mx-auto sm:mt-8" />
         </div>
@@ -16,25 +15,25 @@ const LPStats: React.FC<ILPStatsProps> = () => {
         <div className="mx-auto mt-20 grid max-w-screen-xl grid-cols-1  gap-x-8 gap-y-12 text-center sm:grid-cols-3 sm:text-left lg:gap-0">
           <div className="relative mb-3 text-left lg:px-12">
             <div className="absolute left-3 -top-4 h-16 w-16 rounded-full bg-accent-focus"></div>
-            <p className="relative text-2xl font-semibold md:text-6xl">25m+</p>
-            <p className="relative mt-5">customer served</p>
+            <p className="relative text-2xl font-semibold md:text-6xl">25%</p>
+            <p className="relative mt-5">of population acknowledges the importance of investing but struggles to develop consistent savings habits. </p>
           </div>
 
           <div className="relative mb-3 text-left lg:px-12">
             <div className="absolute left-3 -top-4 h-16 w-16 rounded-full bg-accent-focus"></div>
             <div className="absolute bottom-0 left-0 hidden h-16 w-px lg:block"></div>
-            <p className="relative text-2xl font-semibold md:text-6xl">99%</p>
-            <p className="relative mt-5 ">customer retention rate</p>
+            <p className="relative text-2xl font-semibold md:text-6xl">67%</p>
+            <p className="relative mt-5 ">growing interest in personal finance management and increasing digital adoption</p>
           </div>
 
           <div className="relative mb-3 text-left lg:px-12">
             <div className="absolute left-3 -top-4 h-16 w-16 rounded-full bg-accent-focus"></div>
             <div className="absolute bottom-0 left-0 hidden h-16 w-px lg:block"></div>
             <p className="relative m-0 text-2xl font-semibold md:text-6xl">
-              100+
+              $3 billion
             </p>
             <p className="relative mt-5 ">
-              supported bank and financial institutions
+              market segment to tap into
             </p>
           </div>
         </div>
