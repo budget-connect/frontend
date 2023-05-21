@@ -1,3 +1,4 @@
+import { BudgetsProvider } from '@/contexts/BudgetContext';
 import '@/styles/globals.css';
 
 import { Flowbite } from 'flowbite-react';
@@ -22,7 +23,9 @@ export default function App({
       //   dark: isDarkMode,
       // }}
       >
-        <Component {...pageProps} />
+        <BudgetsProvider>
+          <Component {...pageProps} />
+        </BudgetsProvider>
       </Flowbite>
     </SessionProvider>
   );
