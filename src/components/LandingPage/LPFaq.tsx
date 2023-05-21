@@ -43,7 +43,7 @@ const LPFaq: React.FC<ILPFaqProps> = () => {
               <div className="max-h-0 overflow-hidden transition-all duration-500 peer-checked:max-h-96">
                 <div className="p-5">
                   <p className="text-sm">
-                  In today's fast-paced world, it's easy to overlook the significance of savings and investing. Individuals often leave substantial funds in low-yield accounts, missing out on potential returns. Furthermore, some individuals lack the knowledge and guidance to make informed investment decisions, exposing themselves to unnecessary risks.
+                  In today fast-paced world, it is easy to overlook the significance of savings and investing. Individuals often leave substantial funds in low-yield accounts, missing out on potential returns. Furthermore, some individuals lack the knowledge and guidance to make informed investment decisions, exposing themselves to unnecessary risks.
                   </p>
                 </div>
               </div>

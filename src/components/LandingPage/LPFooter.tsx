@@ -1,7 +1,6 @@
 import React from "react";
 import { ILPFooterProps } from "../../types/LPinterface";
 import LPFooterLink from "./LPFooterLink";
-import Image from "next/image";
 import { Button } from "../Button";
 
 const LPFooter: React.FC<ILPFooterProps> = () => {

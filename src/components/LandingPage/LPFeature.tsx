@@ -41,7 +41,7 @@ const LPFeature: React.FC<ILPFeatureProps> = () => {
             </div>
             <div>
               <p className="text-lg">
-              Whether it's saving for a down payment, retirement, or a dream vacation, BudgetConnect ensures that every dollar works smarter and harder.
+              Whether it is saving for a down payment, retirement, or a dream vacation, BudgetConnect ensures that every dollar works smarter and harder.
               </p>
             </div>
           </div>
