@@ -31,7 +31,7 @@ const AddExpenseModal: React.FC<AddExpenseModalProps> = ({
   }
 
   return (
-    <Modal show={show} onClose={handleClose} className="w-96">
+    <Modal show={show} onClose={handleClose}>
       <form onSubmit={handleSubmit}>
         <Modal.Header>New Expense</Modal.Header>
         <Modal.Body>

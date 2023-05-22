@@ -11,8 +11,7 @@ interface BudgetCardProps {
   onAddExpenseClick?: () => void;
   onViewExpensesClick?: () => void;
 }
-
-export const BudgetCard: React.FC<BudgetCardProps> = ({
+const BudgetCard: React.FC<BudgetCardProps> = ({
   name,
   amount,
   max,
@@ -22,7 +21,7 @@ export const BudgetCard: React.FC<BudgetCardProps> = ({
   onViewExpensesClick,
 }) => {
   const classNames: string[] = [];
-  if (amount > max) {
+  if (max !== undefined && amount > max) {
     classNames.push('bg-red-500', 'bg-opacity-10');
   } else if (gray) {
     classNames.push('bg-gray-100');
@@ -80,3 +79,5 @@ function getProgressBarVariant(
   if (ratio < 0.75) return 'yellow';
   return 'red';
 }
+
+export default BudgetCard;

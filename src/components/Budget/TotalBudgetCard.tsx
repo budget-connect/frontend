@@ -1,5 +1,5 @@
 import { useBudgets } from '@/contexts/BudgetContext';
-import { BudgetCard } from './BudgetCard';
+import BudgetCard from './BudgetCard';
 
 export default function TotalBudgetCard(): JSX.Element | null {
   const { expenses, budgets } = useBudgets();

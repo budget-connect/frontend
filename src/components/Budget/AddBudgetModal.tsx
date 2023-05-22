@@ -32,7 +32,7 @@ const AddBudgetModal: React.FC<AddBudgetModalProps> = ({
       <form onSubmit={handleSubmit}>
         <Modal.Header>New Budget</Modal.Header>
         <Modal.Body>
-          <div>
+          <div className="mb-2">
             <div className="mb-2 block">
               <Label htmlFor="name" value="Name" />
             </div>
@@ -62,9 +62,8 @@ const AddBudgetModal: React.FC<AddBudgetModalProps> = ({
         </Modal.Body>
         <Modal.Footer>
           <div className="flex justify-end">
-            <Button type="submit">Add</Button>
+            <Button type="submit">Add New Budget</Button>
           </div>
-          New Budget
         </Modal.Footer>
       </form>
     </Modal>

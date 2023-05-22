@@ -1,15 +1,15 @@
 import AddBudgetModal from '@/components/Budget/AddBudgetModal';
 import AddExpenseModal from '@/components/Budget/AddExpenseModal';
-import { BudgetCard } from '@/components/Budget/BudgetCard';
+import BudgetCard from '@/components/Budget/BudgetCard';
 import TotalBudgetCard from '@/components/Budget/TotalBudgetCard';
 import UncategorizedBudgetCard from '@/components/Budget/UncategorizedBudgetCard';
 import ViewExpensesModal from '@/components/Budget/ViewExpensesModal';
 import Layout from '@/components/Layout/Layout';
 import { UNCATEGORIZED_BUDGET_ID, useBudgets } from '@/contexts/BudgetContext';
 import { Button } from 'flowbite-react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-const Portfolio: React.FC = () => {
+const Portfolio = () => {
   const [showAddBudgetModal, setShowAddBudgetModal] = useState(false);
   const [showAddExpenseModal, setShowAddExpenseModal] = useState(false);
   const [viewExpensesModalBudgetId, setViewExpensesModalBudgetId] = useState<
@@ -28,7 +28,7 @@ const Portfolio: React.FC = () => {
   return (
     <>
       <Layout>
-        <div className="my-4">
+        <div className="my-4 container mx-auto">
           <div className="mb-4 gap-2 flex flex-row justify-center mx-4">
             <Button
               onClick={() => setShowAddBudgetModal(true)}

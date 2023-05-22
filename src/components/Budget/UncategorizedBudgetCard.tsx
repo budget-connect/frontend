@@ -1,6 +1,6 @@
 import React from 'react';
 import { UNCATEGORIZED_BUDGET_ID, useBudgets } from '@/contexts/BudgetContext';
-import { BudgetCard } from './BudgetCard';
+import BudgetCard from './BudgetCard';
 
 interface UncategorizedBudgetCardProps {
   // Add any required props
