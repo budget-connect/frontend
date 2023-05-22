@@ -1,10 +1,9 @@
 import React from 'react';
 import { UNCATEGORIZED_BUDGET_ID, useBudgets } from '@/contexts/BudgetContext';
-import BudgetCard from './BudgetCard';
+import BudgetCard, { BudgetCardProps } from './BudgetCard';
 
-interface UncategorizedBudgetCardProps {
-  // Add any required props
-}
+interface UncategorizedBudgetCardProps
+  extends Omit<BudgetCardProps, 'amount' | 'name' | 'gray'> {}
 
 const UncategorizedBudgetCard: React.FC<UncategorizedBudgetCardProps> = (
   props
@@ -16,7 +15,7 @@ const UncategorizedBudgetCard: React.FC<UncategorizedBudgetCardProps> = (
   );
   if (amount === 0) return null;
 
-  return <BudgetCard amount={amount} name="Uncategorized" gray {...props} />;
+  return <BudgetCard {...props} amount={amount} name="Uncategorized" gray />;
 };
 
 export default UncategorizedBudgetCard;

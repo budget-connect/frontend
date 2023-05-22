@@ -2,7 +2,7 @@ import { Button, Card, Progress } from 'flowbite-react';
 import { twMerge } from 'tailwind-merge';
 import { currencyFormatter } from './utils';
 
-interface BudgetCardProps {
+export interface BudgetCardProps {
   name: string;
   amount: number;
   max?: number;
@@ -28,12 +28,12 @@ const BudgetCard: React.FC<BudgetCardProps> = ({
         gray ? 'bg-gray-100' : '' // last conflicting class wins
       )}
     >
-      <div className="d-flex justify-between items-baseline font-normal mb-3">
-        <div className="me-2">{name}</div>
+      <div className="mb-3 items-baseline justify-between font-normal">
+        <div className="me-2 text-lg font-bold">{name}</div>
         <div className="flex items-baseline">
           {currencyFormatter.format(amount)}
           {max && (
-            <span className="text-gray-500 text-sm ml-1">
+            <span className="ml-1 text-sm text-gray-500">
               / {currencyFormatter.format(max)}
             </span>
           )}
@@ -43,7 +43,6 @@ const BudgetCard: React.FC<BudgetCardProps> = ({
         <Progress
           className="rounded-full"
           color={getProgressBarVariant(amount, max)}
-          // min={0}
           // max={max}
           size="lg"
           labelProgress={true}
@@ -51,7 +50,7 @@ const BudgetCard: React.FC<BudgetCardProps> = ({
         />
       )}
       {!hideButtons && (
-        <div className="flex gap-x-2 mt-4">
+        <div className="mt-4 flex gap-x-2">
           <Button
             outline={true}
             gradientDuoTone="cyanToBlue"
