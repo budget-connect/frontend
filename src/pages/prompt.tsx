@@ -43,7 +43,7 @@ const Home: NextPage = () => {
       toast.error('Please input your monthly income');
       return;
     }
-    const response = await fetch('/api/generate', {
+    const response = await fetch('/api/ai', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
