@@ -49,15 +49,19 @@ const Header = () => {
               }
             }}
           /> */}
-          {status === 'authenticated' ? (
-            <Button className="ml-2" onClick={() => signOut()}>
-              Logout
-            </Button>
-          ) : (
-            <Button className="ml-2" onClick={() => signIn()}>
-              Login
-            </Button>
-          )}
+          <Button
+            className="ml-2"
+            color="dark"
+            onClick={() => {
+              if (status === 'authenticated') {
+                signOut();
+              } else {
+                signIn();
+              }
+            }}
+          >
+            {status === 'authenticated' ? 'Logout' : 'Login'}
+          </Button>
           <Navbar.Toggle />
         </div>
         <Navbar.Collapse>

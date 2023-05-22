@@ -1,6 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import { ILPFooterLinkProps } from "../../types/LPinterface";
+import { ILPFooterLinkProps } from '../../types/LPinterface';
+import Link from 'next/link';
 
 const LPFooterLink: React.FC<ILPFooterLinkProps> = ({
   link,
@@ -10,24 +11,24 @@ const LPFooterLink: React.FC<ILPFooterLinkProps> = ({
   return (
     <>
       {underline ? (
-        <a
+        <Link
           className={
-            "inline-block underline transition hover:text-secondary-content/75"
+            'inline-block underline transition hover:text-secondary-content/75'
           }
           href={link}
         >
           {title}
-        </a>
+        </Link>
       ) : (
         <li>
-          <a
+          <Link
             className={
-              "inline-block transition hover:text-secondary-content/75"
+              'inline-block transition hover:text-secondary-content/75'
             }
             href={link}
           >
             {title}
-          </a>
+          </Link>
         </li>
       )}
     </>
