@@ -6,9 +6,7 @@ import {
 } from '@heroicons/react/20/solid';
 import { Fragment } from 'react';
 import { CATEGORY_NAMES } from '@/data/categories';
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ');
-}
+import { twMerge } from 'tailwind-merge';
 
 interface DropDownProps {
   category: string;
@@ -53,7 +51,7 @@ export default function DropDown({ category, setCategory }: DropDownProps) {
                 {({ active }) => (
                   <button
                     onClick={() => setCategory(categoryItem)}
-                    className={classNames(
+                    className={twMerge(
                       active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                       category === categoryItem ? 'bg-gray-200' : '',
                       'px-4 py-2 text-sm w-full text-left flex items-center space-x-2 justify-between'

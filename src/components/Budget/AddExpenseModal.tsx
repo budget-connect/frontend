@@ -37,7 +37,7 @@ const AddExpenseModal: React.FC<AddExpenseModalProps> = ({
         <Modal.Body>
           <div className="mb-3">
             <Label
-              className="block mb-2"
+              className="mb-2 block"
               value="Description"
               htmlFor="description"
             >
@@ -51,7 +51,7 @@ const AddExpenseModal: React.FC<AddExpenseModalProps> = ({
             />
           </div>
           <div className="mb-3">
-            <Label htmlFor="amount" className="block mb-2">
+            <Label htmlFor="amount" className="mb-2 block">
               Amount
             </Label>
             <TextInput
@@ -66,7 +66,7 @@ const AddExpenseModal: React.FC<AddExpenseModalProps> = ({
           <div className="mb-3">
             <Label
               htmlFor="budgetId"
-              className="block mb-2"
+              className="mb-2 block"
               value="Budget"
             ></Label>
             <Select

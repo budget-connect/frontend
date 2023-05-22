@@ -1,4 +1,5 @@
 import { Button, Card, Progress } from 'flowbite-react';
+import { twMerge } from 'tailwind-merge';
 import { currencyFormatter } from './utils';
 
 interface BudgetCardProps {
@@ -10,6 +11,7 @@ interface BudgetCardProps {
   onAddExpenseClick?: () => void;
   onViewExpensesClick?: () => void;
 }
+
 const BudgetCard: React.FC<BudgetCardProps> = ({
   name,
   amount,
@@ -21,13 +23,10 @@ const BudgetCard: React.FC<BudgetCardProps> = ({
 }) => {
   return (
     <Card
-      className={
-        max !== undefined && amount > max
-          ? 'bg-red-500 bg-opacity-10'
-          : gray
-          ? 'bg-gray-100'
-          : ''
-      }
+      className={twMerge(
+        max !== undefined && amount > max ? 'bg-red-500 bg-opacity-10' : '',
+        gray ? 'bg-gray-100' : '' // last conflicting class wins
+      )}
     >
       <div className="d-flex justify-between items-baseline font-normal mb-3">
         <div className="me-2">{name}</div>

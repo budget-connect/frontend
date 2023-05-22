@@ -28,8 +28,8 @@ const Portfolio = () => {
   return (
     <>
       <Layout>
-        <div className="my-4 container mx-auto">
-          <div className="mb-4 gap-2 flex flex-row justify-center mx-4">
+        <div className="container mx-auto my-4">
+          <div className="mx-4 mb-4 flex flex-row justify-center gap-2">
             <Button
               onClick={() => setShowAddBudgetModal(true)}
               className="flex w-full"
@@ -46,7 +46,7 @@ const Portfolio = () => {
           </div>
           <div className="flex flex-col gap-4">
             <TotalBudgetCard />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {budgets.map((budget) => {
                 const amount = getBudgetExpenses(budget.id).reduce(
                   (total, expense) => total + expense.amount,
@@ -79,15 +79,19 @@ const Portfolio = () => {
         show={showAddBudgetModal}
         handleClose={() => setShowAddBudgetModal(false)}
       />
-      <AddExpenseModal
-        show={showAddExpenseModal}
-        defaultBudgetId={addExpenseModalBudgetId}
-        handleClose={() => setShowAddExpenseModal(false)}
-      />
-      <ViewExpensesModal
-        budgetId={viewExpensesModalBudgetId}
-        handleClose={() => setViewExpensesModalBudgetId(null)}
-      />
+      {addExpenseModalBudgetId !== undefined && (
+        <AddExpenseModal
+          show={showAddExpenseModal}
+          defaultBudgetId={addExpenseModalBudgetId}
+          handleClose={() => setShowAddExpenseModal(false)}
+        />
+      )}
+      {viewExpensesModalBudgetId !== null && (
+        <ViewExpensesModal
+          budgetId={viewExpensesModalBudgetId}
+          handleClose={() => setViewExpensesModalBudgetId(null)}
+        />
+      )}
     </>
   );
 };

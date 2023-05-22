@@ -1,10 +1,14 @@
-import { UNCATEGORIZED_BUDGET_ID, useBudgets } from '@/contexts/BudgetContext';
+import {
+  UNCATEGORIZED_BUDGET,
+  UNCATEGORIZED_BUDGET_ID,
+  useBudgets,
+} from '@/contexts/BudgetContext';
+import { Button, Modal } from 'flowbite-react';
 import React from 'react';
 import { currencyFormatter } from './utils';
-import { Button, Modal } from 'flowbite-react';
 
 interface ViewExpensesModalProps {
-  budgetId: string | null;
+  budgetId: string;
   handleClose: () => void;
 }
 
@@ -18,7 +22,7 @@ const ViewExpensesModal: React.FC<ViewExpensesModalProps> = ({
   const expenses = getBudgetExpenses(budgetId);
   const budget =
     UNCATEGORIZED_BUDGET_ID === budgetId
-      ? { name: 'Uncategorized', id: UNCATEGORIZED_BUDGET_ID }
+      ? UNCATEGORIZED_BUDGET
       : budgets.find((b) => b.id === budgetId);
 
   return (

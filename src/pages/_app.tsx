@@ -1,6 +1,6 @@
-import { BudgetsProvider } from '@/contexts/BudgetContext';
 import '@/styles/globals.css';
 
+import { BudgetsProvider } from '@/contexts/BudgetContext';
 import { Flowbite } from 'flowbite-react';
 import { SessionProvider } from 'next-auth/react';
 import type { AppProps } from 'next/app';

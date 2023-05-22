@@ -30,8 +30,13 @@ const BudgetsContext = React.createContext<BudgetsContextType | undefined>(
 );
 
 export const UNCATEGORIZED_BUDGET_ID = 'Uncategorized';
+export const UNCATEGORIZED_BUDGET: Budget = {
+  id: UNCATEGORIZED_BUDGET_ID,
+  max: 0,
+  name: 'Uncategorized',
+};
 
-export function useBudgets(): BudgetsContextType {
+export function useBudgets() {
   const context = useContext(BudgetsContext);
   if (!context) {
     throw new Error('useBudgets must be used within a BudgetsProvider');
@@ -39,7 +44,7 @@ export function useBudgets(): BudgetsContextType {
   return context;
 }
 
-export const BudgetsProvider: React.FC = ({
+export const BudgetsProvider = ({
   children,
 }: {
   children?: React.ReactNode;
