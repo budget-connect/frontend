@@ -1,4 +1,3 @@
-// import { Button, Card, ProgressBar } from 'react-bootstrap';
 import { Button, Card, Progress } from 'flowbite-react';
 import { currencyFormatter } from './utils';
 
@@ -20,52 +19,51 @@ const BudgetCard: React.FC<BudgetCardProps> = ({
   onAddExpenseClick,
   onViewExpensesClick,
 }) => {
-  const classNames: string[] = [];
-  if (max !== undefined && amount > max) {
-    classNames.push('bg-red-500', 'bg-opacity-10');
-  } else if (gray) {
-    classNames.push('bg-gray-100');
-  }
-
   return (
-    <Card className={classNames.join(' ')}>
-      <div>
-        <div className="d-flex justify-between items-baseline font-normal mb-3">
-          <div className="me-2">{name}</div>
-          <div className="flex items-baseline">
-            {currencyFormatter.format(amount)}
-            {max && (
-              <span className="text-gray-500 text-sm ml-1">
-                / {currencyFormatter.format(max)}
-              </span>
-            )}
-          </div>
+    <Card
+      className={
+        max !== undefined && amount > max
+          ? 'bg-red-500 bg-opacity-10'
+          : gray
+          ? 'bg-gray-100'
+          : ''
+      }
+    >
+      <div className="d-flex justify-between items-baseline font-normal mb-3">
+        <div className="me-2">{name}</div>
+        <div className="flex items-baseline">
+          {currencyFormatter.format(amount)}
+          {max && (
+            <span className="text-gray-500 text-sm ml-1">
+              / {currencyFormatter.format(max)}
+            </span>
+          )}
         </div>
-        {max && (
-          <Progress
-            className="rounded-full"
-            color={getProgressBarVariant(amount, max)}
-            // min={0}
-            // max={max}
-            size="lg"
-            labelProgress={true}
-            progress={Number(Math.round((amount / max) * 100))}
-          />
-        )}
-        {!hideButtons && (
-          <div className="flex gap-x-2 mt-4">
-            <Button
-              outline={true}
-              gradientDuoTone="cyanToBlue"
-              className="ml-auto"
-              onClick={onAddExpenseClick}
-            >
-              Add Expense
-            </Button>
-            <Button onClick={onViewExpensesClick}>View Expenses</Button>
-          </div>
-        )}
       </div>
+      {max && (
+        <Progress
+          className="rounded-full"
+          color={getProgressBarVariant(amount, max)}
+          // min={0}
+          // max={max}
+          size="lg"
+          labelProgress={true}
+          progress={Number(Math.round((amount / max) * 100))}
+        />
+      )}
+      {!hideButtons && (
+        <div className="flex gap-x-2 mt-4">
+          <Button
+            outline={true}
+            gradientDuoTone="cyanToBlue"
+            className="ml-auto"
+            onClick={onAddExpenseClick}
+          >
+            Add Expense
+          </Button>
+          <Button onClick={onViewExpensesClick}>View Expenses</Button>
+        </div>
+      )}
     </Card>
   );
 };
