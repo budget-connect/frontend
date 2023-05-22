@@ -1,9 +1,9 @@
+import { BudgetsProvider } from '@/contexts/BudgetContext';
 import '@/styles/globals.css';
 
 import { Flowbite } from 'flowbite-react';
 import { SessionProvider } from 'next-auth/react';
 import type { AppProps } from 'next/app';
-import { useEffect, useState } from 'react';
 
 export default function App({
   Component,
@@ -23,7 +23,9 @@ export default function App({
       //   dark: isDarkMode,
       // }}
       >
-        <Component {...pageProps} />
+        <BudgetsProvider>
+          <Component {...pageProps} />
+        </BudgetsProvider>
       </Flowbite>
     </SessionProvider>
   );
