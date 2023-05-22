@@ -1,6 +1,6 @@
-import Image, { StaticImageData } from "next/image";
-import React from "react";
-import { Button } from "../Button";
+import Image, { StaticImageData } from 'next/image';
+import React from 'react';
+import { Button } from '../Button';
 
 export interface ILPBodyItemProps {
   num: string;
@@ -19,7 +19,7 @@ const LPBodyItem: React.FC<ILPBodyItemProps> = ({
   return (
     <>
       <div className="mt-10 grid grid-cols-3 items-end md:mt-0">
-        <h2 className="text-6xl text-accent lg:text-9xl">
+        <h2 className="text-accent text-6xl lg:text-9xl">
           <span className="h-fit">{num}</span>
         </h2>
         <div className="col-span-2 grid justify-items-center">

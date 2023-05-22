@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
 interface IButtonProps {
-  direction?: "left-0" | "right-0" | "top-0" | "bottom-0";
-  inset?: "inset-x-0" | "inset-y-0";
+  direction?: 'left-0' | 'right-0' | 'top-0' | 'bottom-0';
+  inset?: 'inset-x-0' | 'inset-y-0';
   children?: React.ReactNode;
-  type?: "button" | "submit" | "reset";
+  type?: 'button' | 'submit' | 'reset';
   className?: string;
   disabled?: boolean;
 }
@@ -32,9 +32,9 @@ interface IButtonProps {
  */
 export const Button: React.FC<IButtonProps> = ({
   children,
-  direction = "left-0",
-  inset = "inset-y-0",
-  type = "button",
+  direction = 'left-0',
+  inset = 'inset-y-0',
+  type = 'button',
   className,
   disabled,
 }) => {
@@ -43,16 +43,16 @@ export const Button: React.FC<IButtonProps> = ({
       <button
         type={type}
         disabled={disabled}
-        className="group relative inline-block w-full overflow-hidden border border-base-content px-8 py-3 focus:outline-none"
+        className="border-base-content group relative inline-block w-full overflow-hidden border px-8 py-3 focus:outline-none"
       >
         <span
           className={`absolute ${inset} ${direction} ${
-            inset === "inset-x-0" ? "h-[2px]" : "w-[2px]"
+            inset === 'inset-x-0' ? 'h-[2px]' : 'w-[2px]'
           } bg-accent-focus transition-all ${
-            inset === "inset-x-0" ? "group-hover:h-full" : "group-hover:w-full"
+            inset === 'inset-x-0' ? 'group-hover:h-full' : 'group-hover:w-full'
           } group-active:bg-accent-focus`}
         ></span>
-        <span className="relative text-sm font-medium text-base-content transition-colors group-hover:text-white">
+        <span className="text-base-content relative text-sm font-medium transition-colors group-hover:text-white">
           {children}
         </span>
       </button>

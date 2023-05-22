@@ -5,8 +5,8 @@ import { Button } from '../Button';
 
 const LPFaq: React.FC<ILPFaqProps> = () => {
   return (
-    <section className="mx-auto container">
-      <div className="relative mx-auto w-full py-16 px-5 font-sans sm:px-20 md:max-w-screen-lg lg:py-24">
+    <section className="container mx-auto">
+      <div className="relative mx-auto w-full px-5 py-16 font-sans sm:px-20 md:max-w-screen-lg lg:py-24">
         <h2 className="mb-5 text-center text-4xl font-semibold leading-snug tracking-tight lg:text-5xl">
           Frequently Asked Questions
         </h2>

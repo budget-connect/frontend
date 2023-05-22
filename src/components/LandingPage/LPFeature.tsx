@@ -4,7 +4,7 @@ import { FeatureImage } from '../../assets/images/feature-image';
 
 const LPFeatures: React.FC<ILPFeatureProps> = () => {
   return (
-    <section className="mx-auto flex flex-col py-10 lg:flex-row lg:space-x-4 container">
+    <section className="container mx-auto flex flex-col py-10 lg:flex-row lg:space-x-4">
       <div className="relative hidden lg:flex lg:flex-[33.3%]">
         <FeatureImage strokeColor="fill-accent" />
       </div>
@@ -13,7 +13,7 @@ const LPFeatures: React.FC<ILPFeatureProps> = () => {
           A revolutionary solution that helps you develop healthy savings and
           investing habits
         </h2>
-        <div className="grid gap-y-12 gap-x-8 lg:grid-cols-2">
+        <div className="grid gap-x-8 gap-y-12 lg:grid-cols-2">
           <div>
             <p className="text-lg">
               BudgetConnect combines cutting-edge technology, user-friendly

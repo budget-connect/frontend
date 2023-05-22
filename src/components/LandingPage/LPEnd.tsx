@@ -1,5 +1,5 @@
-import React from "react";
-import { ILPEndProps } from "../../types/LPinterface";
+import React from 'react';
+import { ILPEndProps } from '../../types/LPinterface';
 
 const LPEnd: React.FC<ILPEndProps> = () => {
   return (

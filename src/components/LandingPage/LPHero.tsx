@@ -9,7 +9,7 @@ const LPHero: React.FC<ILPHeroProps> = () => {
   return (
     <section>
       <div>
-        <div className="mx-auto h-full py-10 md:py-24 container">
+        <div className="container mx-auto h-full py-10 md:py-24">
           <div className="flex flex-col items-center justify-between lg:flex-row">
             <div>
               <div className="lg:max-w-3xl lg:pr-5">

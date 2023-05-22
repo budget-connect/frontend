@@ -4,12 +4,12 @@ import { ILPSocialProofProps } from '@/types/LPinterface';
 
 const LPSocialProof: React.FC<ILPSocialProofProps> = () => {
   return (
-    <section className="py-6 sm:py-16 lg:py-20 container mx-auto">
-      <div className="w-full bg-base-300 py-16 md:py-32">
-        <h2 className="mx-2 text-center text-4xl font-semibold leading-snug tracking-tight lg:text-5xl mb-4">
+    <section className="container mx-auto py-6 sm:py-16 lg:py-20">
+      <div className="bg-base-300 w-full py-16 md:py-32">
+        <h2 className="mx-2 mb-4 text-center text-4xl font-semibold leading-snug tracking-tight lg:text-5xl">
           Traction
         </h2>
-        <p className="text-center tracking-wide text-lg">
+        <p className="text-center text-lg tracking-wide">
           BudgetConnect has already garnered significant attention and positive
           feedback during its beta testing phase. Early users have reported
           improved financial discipline, increased savings rates, and enhanced
@@ -18,7 +18,7 @@ const LPSocialProof: React.FC<ILPSocialProofProps> = () => {
           growing user base, positioning itself as a leader in the personal
           finance industry.
         </p>
-        <hr className="mx-auto mt-4 h-1 w-32 border-0 bg-accent-focus" />
+        <hr className="bg-accent-focus mx-auto mt-4 h-1 w-32 border-0" />
 
         <div className="container mx-auto flex flex-wrap items-center justify-center py-10">
           <div className="w-40 object-contain px-6">
@@ -49,8 +49,8 @@ const LPSocialProof: React.FC<ILPSocialProofProps> = () => {
       </div>
 
       <div className="mx-auto pt-10 lg:pt-32">
-        <div className="flex flex-col lg:flex-row items-center">
-          <div className="relative ml-auto mb-10 flex h-96 overflow-hidden rounded-xl bg-blue-600 shadow lg:h-auto lg:max-w-md">
+        <div className="flex flex-col items-center lg:flex-row">
+          <div className="relative mb-10 ml-auto flex h-96 overflow-hidden rounded-xl bg-blue-600 shadow lg:h-auto lg:max-w-md">
             <Image
               className="absolute top-0 h-full w-full object-cover opacity-10"
               src="https://images.unsplash.com/photo-1551721434-8b94ddff0e6d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80"
@@ -72,7 +72,7 @@ const LPSocialProof: React.FC<ILPSocialProofProps> = () => {
 
                 <div className="mt-10 flex items-center">
                   <Image
-                    className="h-11 w-11 flex-shrink-0 rounded-full object-cover"
+                    className="h-11 w-11 shrink-0 rounded-full object-cover"
                     src="https://avatars.githubusercontent.com/u/7147135?v=4"
                     alt="Avatar"
                     width={44}
@@ -100,7 +100,7 @@ const LPSocialProof: React.FC<ILPSocialProofProps> = () => {
 
               <div className="mt-4 flex items-center">
                 <Image
-                  className="h-11 w-11 flex-shrink-0 rounded-full object-cover"
+                  className="h-11 w-11 shrink-0 rounded-full object-cover"
                   src="https://avatars.githubusercontent.com/u/19247856?v=4"
                   alt="Avatar"
                   width={44}
@@ -125,7 +125,7 @@ const LPSocialProof: React.FC<ILPSocialProofProps> = () => {
 
               <div className="mt-4 flex items-center">
                 <Image
-                  className="h-11 w-11 flex-shrink-0 rounded-full object-cover"
+                  className="h-11 w-11 shrink-0 rounded-full object-cover"
                   src="https://avatars.githubusercontent.com/u/9083891?v=4"
                   alt="Avatar"
                   width={44}
@@ -151,7 +151,7 @@ const LPSocialProof: React.FC<ILPSocialProofProps> = () => {
 
               <div className="mt-4 flex items-center">
                 <Image
-                  className="h-11 w-11 flex-shrink-0 rounded-full object-cover"
+                  className="h-11 w-11 shrink-0 rounded-full object-cover"
                   src="https://avatars.githubusercontent.com/u/41845017?v=4"
                   alt="Avatar"
                   width={44}

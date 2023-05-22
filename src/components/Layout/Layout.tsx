@@ -13,7 +13,7 @@ const Layout = ({ children }: LayoutProps) => {
         <title>Budget Connect</title>
       </Head>
       <Header />
-      <main className="px-4 flex-col items-center justify-between min-h-screen mx-auto">
+      <main className="mx-auto min-h-screen flex-col items-center justify-between px-4">
         {children}
       </main>
     </div>

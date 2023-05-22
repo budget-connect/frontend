@@ -32,7 +32,7 @@ const members = [
 
 const LPTeam: React.FC<ILPTeamProps> = () => {
   return (
-    <section className="mx-auto container">
+    <section className="container mx-auto">
       <div className="container mx-auto px-6 py-10">
         <div className="sm:text-center">
           <h2 className="text-4xl font-semibold leading-snug tracking-tight lg:text-5xl">
@@ -55,7 +55,7 @@ const LPTeam: React.FC<ILPTeamProps> = () => {
             return (
               <div
                 key={member.name}
-                className="group flex transform flex-col items-center rounded-xl border-2 shadow p-8 transition-colors duration-300 hover:border-transparent hover:bg-gray-200 dark:border-gray-700 dark:hover:border-transparent"
+                className="group flex flex-col items-center rounded-xl border-2 p-8 shadow transition-colors duration-300 hover:border-transparent hover:bg-gray-200 dark:border-gray-700 dark:hover:border-transparent"
               >
                 <div className="relative mb-4 h-32 w-32 rounded-full ring-4 ring-gray-300">
                   <Image

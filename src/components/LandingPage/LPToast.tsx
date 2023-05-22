@@ -1,5 +1,5 @@
-import React from "react";
-import { ILPToastProps } from "../../types/LPinterface";
+import React from 'react';
+import { ILPToastProps } from '../../types/LPinterface';
 
 const LPToast: React.FC<ILPToastProps> = ({ justifySelfEnd, textContent }) => {
   return justifySelfEnd ? (

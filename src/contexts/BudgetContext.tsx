@@ -3,14 +3,14 @@ import React, { useContext } from 'react';
 import { v4 as uuidV4 } from 'uuid';
 
 interface Expense {
-  id?: string;
+  id: string;
   description: string;
   amount: number;
   budgetId: string;
 }
 
 interface Budget {
-  id?: string;
+  id: string;
   name: string;
   max: number;
 }
@@ -19,10 +19,10 @@ interface BudgetsContextType {
   budgets: Budget[];
   expenses: Expense[];
   getBudgetExpenses: (budgetId: string) => Expense[];
-  addExpense: (expense: Expense) => void;
-  addBudget: (budget: Budget) => void;
-  deleteBudget: (budget: Budget) => void;
-  deleteExpense: (expense: Expense) => void;
+  addExpense: (expense: Omit<Expense, 'id'>) => void;
+  addBudget: (budget: Omit<Budget, 'id'>) => void;
+  deleteBudget: (budget: Pick<Budget, 'id'>) => void;
+  deleteExpense: (expense: Pick<Expense, 'id'>) => void;
 }
 
 const BudgetsContext = React.createContext<BudgetsContextType | undefined>(
@@ -56,14 +56,14 @@ export const BudgetsProvider = ({
     return expenses.filter((expense) => expense.budgetId === budgetId);
   }
 
-  function addExpense({ description, amount, budgetId }: Expense) {
+  function addExpense({ description, amount, budgetId }: Omit<Expense, 'id'>) {
     setExpenses((prevExpenses) => [
       ...prevExpenses,
       { id: uuidV4(), description, amount, budgetId },
     ]);
   }
 
-  function addBudget({ name, max }: Budget) {
+  function addBudget({ name, max }: Omit<Budget, 'id'>) {
     setBudgets((prevBudgets) => {
       if (prevBudgets.find((budget) => budget.name === name)) {
         return prevBudgets;
@@ -72,7 +72,7 @@ export const BudgetsProvider = ({
     });
   }
 
-  function deleteBudget({ id }: Budget) {
+  function deleteBudget({ id }: Pick<Budget, 'id'>) {
     setExpenses((prevExpenses) =>
       prevExpenses.map((expense) => {
         if (expense.budgetId !== id) return expense;
@@ -85,7 +85,7 @@ export const BudgetsProvider = ({
     );
   }
 
-  function deleteExpense({ id }: Expense) {
+  function deleteExpense({ id }: Pick<Expense, 'id'>) {
     setExpenses((prevExpenses) =>
       prevExpenses.filter((expense) => expense.id !== id)
     );

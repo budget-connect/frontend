@@ -6,13 +6,13 @@ import Link from 'next/link';
 
 const LPFooter: React.FC<ILPFooterProps> = () => {
   return (
-    <section className="flex justify-center pt-8 mx-auto container">
-      <footer className="w-full bg-neutral text-neutral-content">
+    <section className="container mx-auto flex justify-center pt-8">
+      <footer className="bg-neutral text-neutral-content w-full">
         <div className="mx-auto">
           <div className="lg:grid lg:grid-cols-2">
-            <div className="border-b border-neutral-content py-16 lg:order-last lg:border-b-0 lg:border-l lg:py-24 lg:pl-12">
+            <div className="border-neutral-content border-b py-16 lg:order-last lg:border-b-0 lg:border-l lg:py-24 lg:pl-12">
               <div className="mt-12 space-y-4 lg:mt-0">
-                <span className="rounded bg-accent-focus lg:block lg:h-1 lg:w-10"></span>
+                <span className="bg-accent-focus rounded lg:block lg:h-1 lg:w-10"></span>
 
                 <div className="text-center lg:text-left">
                   <h2 className="text-2xl font-medium">
@@ -42,7 +42,7 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
                     </label>
 
                     <TextInput
-                      className="w-full rounded-md bg-white py-4 text-sm text-primary"
+                      className="text-primary w-full rounded-md bg-white py-4 text-sm"
                       required
                       type="email"
                       placeholder="Enter your email"
@@ -61,7 +61,7 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
               </div>
             </div>
 
-            <div className="pt-16 pb-8 lg:pt-24 lg:pr-12">
+            <div className="pb-8 pt-16 lg:pr-12 lg:pt-24">
               <div className="hidden lg:flex"></div>
 
               <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 lg:mt-12">
@@ -129,7 +129,7 @@ const LPFooter: React.FC<ILPFooterProps> = () => {
                 </div>
               </div>
 
-              <div className="mt-16 border-t border-neutral-content  pt-8 text-sm lg:mt-24">
+              <div className="border-neutral-content mt-16 border-t  pt-8 text-sm lg:mt-24">
                 <p className="text-center lg:text-left">
                   <LPFooterLink
                     underline

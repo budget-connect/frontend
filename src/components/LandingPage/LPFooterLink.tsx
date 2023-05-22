@@ -13,7 +13,7 @@ const LPFooterLink: React.FC<ILPFooterLinkProps> = ({
       {underline ? (
         <Link
           className={
-            'inline-block underline transition hover:text-secondary-content/75'
+            'hover:text-secondary-content/75 inline-block underline transition'
           }
           href={link}
         >
@@ -23,7 +23,7 @@ const LPFooterLink: React.FC<ILPFooterLinkProps> = ({
         <li>
           <Link
             className={
-              'inline-block transition hover:text-secondary-content/75'
+              'hover:text-secondary-content/75 inline-block transition'
             }
             href={link}
           >
