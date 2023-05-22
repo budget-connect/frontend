@@ -87,7 +87,7 @@ export default function Analytics() {
           data={data}
           categories={['HighSavings', 'Savings', 'NoSavings']}
           index="Month"
-          colors={['indigo', 'fuchsia', 'black']}
+          colors={['indigo', 'fuchsia', 'gray']}
           valueFormatter={valueFormatter}
         />
       </Card>
