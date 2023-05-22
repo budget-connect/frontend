@@ -6,10 +6,13 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx}',
     './src/app/**/*.{js,ts,jsx,tsx}',
     './node_modules/@tremor/**/*.{js,ts,jsx,tsx,mdx}',
-    "./src/assets/**/*.{js,ts,jsx,tsx}",
+    './src/assets/**/*.{js,ts,jsx,tsx}',
   ],
   darkMode: 'class',
   theme: {
+    container: {
+      padding: '2rem',
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -18,5 +21,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('flowbite/plugin'), require("@tailwindcss/forms")],
+  plugins: [require('flowbite/plugin'), require('@tailwindcss/forms')],
 };

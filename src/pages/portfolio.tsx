@@ -28,19 +28,12 @@ const Portfolio = () => {
   return (
     <>
       <Layout>
-        <div className="container mx-auto my-4">
-          <div className="mx-4 mb-4 flex flex-row justify-center gap-2">
-            <Button
-              onClick={() => setShowAddBudgetModal(true)}
-              className="flex w-full"
-            >
+        <div className="container mx-auto my-4 mt-16">
+          <div className="mb-4 flex justify-end space-x-2">
+            <Button onClick={() => setShowAddBudgetModal(true)}>
               Add Budget
             </Button>
-            <Button
-              outline
-              onClick={() => openAddExpenseModal(undefined)}
-              className="flex w-full"
-            >
+            <Button outline onClick={() => openAddExpenseModal(undefined)}>
               Add Expense
             </Button>
           </div>
