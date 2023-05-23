@@ -30,27 +30,18 @@ const ViewExpensesModal: React.FC<ViewExpensesModalProps> = ({
       <Modal.Header>
         <div className="flex flex-row gap-2">
           <div>Expenses - {budget?.name}</div>
-          {budgetId !== UNCATEGORIZED_BUDGET_ID && (
-            <Button
-              onClick={() => {
-                if (budget) {
-                  deleteBudget(budget);
-                }
-                handleClose();
-              }}
-              color="failure"
-              outline
-            >
-              Delete
-            </Button>
-          )}
         </div>
       </Modal.Header>
       <Modal.Body>
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-4">
           {expenses.map((expense) => (
-            <div className="flex flex-row gap-2" key={expense.id}>
-              <div className="me-auto text-lg">{expense.description}</div>
+            <div
+              className="flex flex-row gap-2 items-center border-dashed border-b pb-2"
+              key={expense.id}
+            >
+              <div className="me-auto text-lg font-semibold">
+                {expense.description ?? 'No description'}
+              </div>
               <div className="text-xl">
                 {currencyFormatter.format(expense.amount)}
               </div>
@@ -66,6 +57,24 @@ const ViewExpensesModal: React.FC<ViewExpensesModalProps> = ({
           ))}
         </div>
       </Modal.Body>
+      <Modal.Footer>
+        <div className="flex w-full justify-end">
+          {budgetId !== UNCATEGORIZED_BUDGET_ID && (
+            <Button
+              onClick={() => {
+                if (budget) {
+                  deleteBudget(budget);
+                }
+                handleClose();
+              }}
+              color="failure"
+              outline
+            >
+              Delete
+            </Button>
+          )}
+        </div>
+      </Modal.Footer>
     </Modal>
   );
 };
