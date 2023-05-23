@@ -15,9 +15,7 @@ const AskAiModal: React.FC<AskAiModalProps> = ({
   const [generatedPlan, setGeneratedPlan] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  console.log({ generatedPlan, isLoading, prompt });
   const generatePlan = useCallback(async () => {
-    console.log('generating new plan');
     setIsLoading(true);
     const response = await fetch('/api/edge', {
       method: 'POST',
@@ -53,10 +51,10 @@ const AskAiModal: React.FC<AskAiModalProps> = ({
   }, [prompt]);
 
   useEffect(() => {
-    if (show && prompt !== '' && !isLoading) {
+    if (show && prompt !== '' && !isLoading && generatedPlan === '') {
       generatePlan();
     }
-  }, [show, prompt, generatePlan, isLoading]);
+  }, [show, prompt, generatePlan, isLoading, generatedPlan]);
 
   return (
     <Modal show={show} onClose={handleClose}>

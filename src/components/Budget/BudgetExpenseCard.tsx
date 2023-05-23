@@ -85,22 +85,32 @@ export const BudgetExpenseCard: React.FC<
       />
       <AskAiModal
         show={showAskAiModal}
-        prompt={budget !== undefined ? generatePrompt(budget, expenses) : ''}
+        prompt={
+          budget !== undefined
+            ? generatePrompt(3000, 'singapore', props.name, budget, expenses)
+            : ''
+        }
         handleClose={() => setShowAskAiModal(false)}
       />
     </>
   );
 };
 
-function generatePrompt(budget: Budget, expenses: Expense[]) {
-  return (
-    'monthly income is 3000, location is singapore, category is food, total budget is ' +
-    budget.max +
-    (expenses.length > 0
+function generatePrompt(
+  monthlyIncome: number,
+  categoryName: string,
+  location: string,
+  budget: Budget,
+  expenses: Expense[]
+) {
+  return `monthly income is ${monthlyIncome}, location is ${location}, category is ${categoryName}, total budget is ${
+    budget.max
+  }${
+    expenses.length > 0
       ? ', ' +
         expenses
           .map((expense) => expense.description + ' is ' + expense.amount)
           .join(', ')
-      : '')
-  );
+      : ''
+  }`;
 }
