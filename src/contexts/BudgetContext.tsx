@@ -15,23 +15,16 @@ export interface Budget {
   max: number;
 }
 
-export interface Income {
-  id: string;
-  name: string;
-  amount: number;
-}
-
 interface BudgetsContextType {
   budgets: Budget[];
   expenses: Expense[];
-  incomes: Income[];
+  income: number;
   getBudgetExpenses: (budgetId: string) => Expense[];
   addExpense: (expense: Omit<Expense, 'id'>) => void;
   addBudget: (budget: Omit<Budget, 'id'>) => void;
-  addIncome: (income: Omit<Income, 'id'>) => void;
   deleteBudget: (budget: Pick<Budget, 'id'>) => void;
   deleteExpense: (expense: Pick<Expense, 'id'>) => void;
-  deleteIncome: (income: Pick<Income, 'id'>) => void;
+  setIncome: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const BudgetsContext = React.createContext<BudgetsContextType | undefined>(
@@ -60,7 +53,7 @@ export const BudgetsProvider = ({
 }) => {
   const [budgets, setBudgets] = useLocalStorage<Budget[]>('budgets', []);
   const [expenses, setExpenses] = useLocalStorage<Expense[]>('expenses', []);
-  const [incomes, setIncomes] = useLocalStorage<Income[]>('incomes', []);
+  const [income, setIncome] = useLocalStorage<number>('income', 0);
 
   function getBudgetExpenses(budgetId: string): Expense[] {
     return expenses.filter((expense) => expense.budgetId === budgetId);
@@ -79,15 +72,6 @@ export const BudgetsProvider = ({
         return prevBudgets;
       }
       return [...prevBudgets, { id: uuidV4(), name, max }];
-    });
-  }
-
-  function addIncome({ amount, name }: Omit<Income, 'id'>) {
-    setIncomes((prevIncomes) => {
-      if (prevIncomes.find((income) => income.name === name)) {
-        return prevIncomes;
-      }
-      return [...prevIncomes, { id: uuidV4(), name, amount }];
     });
   }
 
@@ -110,25 +94,18 @@ export const BudgetsProvider = ({
     );
   }
 
-  function deleteIncome({ id }: Pick<Income, 'id'>) {
-    setIncomes((prevIncomes) =>
-      prevIncomes.filter((income) => income.id !== id)
-    );
-  }
-
   return (
     <BudgetsContext.Provider
       value={{
         budgets,
         expenses,
-        incomes,
+        income,
         getBudgetExpenses,
         addExpense,
         addBudget,
-        addIncome,
         deleteBudget,
         deleteExpense,
-        deleteIncome,
+        setIncome,
       }}
     >
       {children}
