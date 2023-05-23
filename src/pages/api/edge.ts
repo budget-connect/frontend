@@ -1,21 +1,10 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import { Configuration, OpenAIApi } from 'openai';
-
-type RequestData = {
-  prompt: string;
-};
-
-type ResponseData = {
-  message?: unknown | string;
+export const config = {
+  runtime: 'edge',
 };
 
 if (!process.env.OPENAI_API_KEY) {
   throw new Error('Missing env var from OpenAI');
 }
-
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-});
 
 export function defaultSystemPrompt() {
   return `Act as expert budget planner with 20 years of experience. Given the user context, fill in and return just the JSON output in the following format, minified:
@@ -41,27 +30,28 @@ Example modified_budget:
 }`;
 }
 
-const openai = new OpenAIApi(configuration);
-
 // example prompt
 // {
 //   "prompt": "monthly income is 3000, location is singapore, category is food, total budget is 300, taken out is 100, restaurant is 200"
 // }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<ResponseData>
-) {
+const handler = async (req: Request): Promise<Response> => {
   if (req.method !== 'POST') {
-    res.status(405).json({ message: 'Method not allowed' });
-    return;
+    return new Response('Method not allowed', { status: 500 });
   }
+  let { prompt } = (await req.json()) as {
+    prompt?: string;
+  };
+
+  if (!prompt) {
+    return new Response('No prompt in the request', { status: 400 });
+  }
+
   try {
-    const { prompt } = req.body as RequestData;
-    const response = await openai.createChatCompletion({
+    const payload = {
       model: 'gpt-3.5-turbo',
       messages: [
-        { role: 'system', content: defaultSystemPrompt() },
+        { role: 'system', content: JSON.stringify(defaultSystemPrompt()) },
         { role: 'user', content: prompt },
       ],
       temperature: 0.7,
@@ -69,17 +59,36 @@ export default async function handler(
       top_p: 1,
       frequency_penalty: 0.5,
       presence_penalty: 0,
+    };
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY ?? ''}`,
+      },
+      method: 'POST',
+      body: JSON.stringify(payload),
     });
-    let jsonResult = {};
+
     try {
-      jsonResult = JSON.parse(response.data.choices[0].message?.content!);
+      const data = await response.json();
+      console.log(data);
+      const jsonResult = data.choices[0].message?.content!;
+      return new Response(jsonResult, {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
     } catch (error) {
       console.error(error);
-      res.status(500).json({ message: 'Fail to parse JSON' });
+      return new Response('Fail to parse JSON', {
+        status: 500,
+      });
     }
-    res.status(200).json(jsonResult);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: error || 'Something went wrong' });
+    return new Response('Something went wrong', { status: 500 });
   }
-}
+};
+
+export default handler;
