@@ -25,3 +25,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+span[data-testid='flowbite-progress-inner-progress-label'] {
+  color: aliceblue;
+}
