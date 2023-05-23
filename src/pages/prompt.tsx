@@ -32,10 +32,12 @@ const Home: NextPage = () => {
     setLoading(true);
     if (!totalBudget) {
       toast.error('Please input your total budget');
+      setLoading(false);
       return;
     }
     if (!userInput) {
       toast.error('Please input some event details or questions');
+      setLoading(false);
       return;
     }
     const response = await fetch('/api/prompt', {
