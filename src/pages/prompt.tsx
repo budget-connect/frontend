@@ -77,9 +77,9 @@ const Home: NextPage = () => {
   return (
     <Layout>
       <div className="flex flex-col items-center justify-center w-full py-2 mx-auto">
-        <div className="flex flex-col items-center justify-center flex-1 w-full px-4 text-center lg:w-4/5 xl:w-1/2 sm:mt-10 sm:flex-row sm:gap-8 sm:items-start">
+        <div className="flex flex-col items-center justify-center flex-1 w-full px-4 text-center sm:mt-10 sm:flex-row sm:items-start sm:gap-8 lg:w-4/5 xl:w-1/2">
           <div className="sm:w-1/2">
-            <h1 className="max-w-[708px] mx-auto text-3xl text-slate-900">
+            <h1 className="mx-auto max-w-[708px] text-3xl text-slate-900">
               Get help on your event budget👋
             </h1>
             <div className="w-full max-w-xl mt-4">

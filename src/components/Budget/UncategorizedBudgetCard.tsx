@@ -1,6 +1,7 @@
 import React from 'react';
 import { UNCATEGORIZED_BUDGET_ID, useBudgets } from '@/contexts/BudgetContext';
 import BudgetCard, { BudgetCardProps } from './BudgetCard';
+import { Button } from 'flowbite-react';
 
 interface UncategorizedBudgetCardProps
   extends Omit<BudgetCardProps, 'amount' | 'name' | 'gray'> {}
@@ -22,6 +23,11 @@ const UncategorizedBudgetCard: React.FC<UncategorizedBudgetCardProps> = (
       name="Uncategorized"
       gray
       isUncatagorized
+      askAiButton={
+        <Button gradientDuoTone={'purpleToBlue'}>
+          Ask BudgetConnect AI ✨
+        </Button>
+      }
     />
   );
 };

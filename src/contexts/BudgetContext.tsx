@@ -2,14 +2,14 @@ import useLocalStorage from '@/hooks/useLocalStorage';
 import React, { useContext } from 'react';
 import { v4 as uuidV4 } from 'uuid';
 
-interface Expense {
+export interface Expense {
   id: string;
   description: string;
   amount: number;
   budgetId: string;
 }
 
-interface Budget {
+export interface Budget {
   id: string;
   name: string;
   max: number;
