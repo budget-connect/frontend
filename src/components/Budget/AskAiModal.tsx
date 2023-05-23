@@ -17,7 +17,7 @@ const AskAiModal: React.FC<AskAiModalProps> = ({
 
   const generatePlan = useCallback(async () => {
     setIsLoading(true);
-    const response = await fetch('/api/edge', {
+    const response = await fetch('/api/portfolio', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -62,6 +62,7 @@ const AskAiModal: React.FC<AskAiModalProps> = ({
       <Modal.Body>
         <div>
           <Label>BudgetConnect AI Response</Label>
+          <br />
           {isLoading && <div>Asking AI...</div>}
           {<span>{generatedPlan}</span>}
         </div>
