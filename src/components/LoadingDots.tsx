@@ -1,14 +1,20 @@
-import styles from "../styles/loading-dots.module.css";
+import { twMerge } from 'tailwind-merge';
+import styles from '../styles/loading-dots.module.css';
 
 const LoadingDots = ({
-  color = "#000",
-  style = "small",
+  color = '#000',
+  style = 'small',
 }: {
   color: string;
   style: string;
 }) => {
   return (
-    <span className={style == "small" ? styles.loading2 : styles.loading}>
+    <span
+      className={twMerge(
+        style == 'small' ? styles.loading2 : styles.loading,
+        'py-2'
+      )}
+    >
       <span style={{ backgroundColor: color }} />
       <span style={{ backgroundColor: color }} />
       <span style={{ backgroundColor: color }} />
@@ -19,5 +25,5 @@ const LoadingDots = ({
 export default LoadingDots;
 
 LoadingDots.defaultProps = {
-  style: "small",
+  style: 'small',
 };
