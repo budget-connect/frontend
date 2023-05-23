@@ -5,14 +5,14 @@ import DropDown from '../components/DropDown';
 import LoadingDots from '../components/LoadingDots';
 import Layout from '@/components/Layout/Layout';
 
-const sampleFoodBudget = `Grocery Budget: $500\n\nEating Out Budget: $150\n\nTotal Monthly Food Budget: $650`;
+const sampleFoodBudget = `I'm planning a birthday party for my son. Right now I'm thinking of catering food for 20 people. I also need a venue`;
 
 const Home: NextPage = () => {
   const [loading, setLoading] = useState(false);
   const [userInput, setUserInput] = useState('');
-  const [section, setSection] = useState<string>('Food');
+  const [section, setSection] = useState<string>('Birthday Parties');
   const [generatedPlan, setGeneratedPlan] = useState('');
-  const [monthlyIncome, setMonthlyIncome] = useState('3000');
+  const [totalBudget, setTotalBudget] = useState('1000');
 
   const [userLocation, setUserLocation] = useState('Singapore');
 
@@ -24,26 +24,21 @@ const Home: NextPage = () => {
     }
   };
 
-  // const prompt2 = `Generate 2 ${section} twitter biographies with no hashtags and clearly labeled "1." and "2.". ${
-  //   section === 'Funny'
-  //     ? "Make sure there is a joke in there and it's a little ridiculous."
-  //     : null
-  // }
-  //     Make sure each generated biography is less than 160 characters, has short sentences that are found in Twitter bios, and base them on this context: ${userInput}${
-  //   userInput.slice(-1) === '.' ? '' : '.'
-  // }`;
-
-  const prompt = `You are an expert budget planner of 20 years of experience. Your task is to review and modify an existing monthly budget. Take note of the following when giving your output: monthly income is ${monthlyIncome}, location is ${userLocation}, category is ${section}. Provide a response starting with and clearly labeled "1." and "2.": 1. A comment pointing out whether the budget exceeds the monthly income and provide advice to improve, and 2. A modified budget of the section that aligns with recommended standards. Let's think step by step. The current budget section: ${userInput}`;
+  const prompt = `Take note that total budget is ${totalBudget}, location is ${userLocation}, event type is ${section}. Rest of the context:${userInput}`;
 
   const generatePlan = async (e: any) => {
     e.preventDefault();
     setGeneratedPlan('');
     setLoading(true);
-    if (!monthlyIncome) {
-      toast.error('Please input your monthly income');
+    if (!totalBudget) {
+      toast.error('Please input your total budget');
       return;
     }
-    const response = await fetch('/api/ai', {
+    if (!userInput) {
+      toast.error('Please input some event details or questions');
+      return;
+    }
+    const response = await fetch('/api/prompt', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -80,19 +75,19 @@ const Home: NextPage = () => {
   return (
     <Layout>
       <div className="flex flex-col items-center justify-center w-full py-2 mx-auto">
-        <main className="flex flex-col items-center justify-center flex-1 w-full px-4 text-center sm:mt-2 sm:flex-row sm:gap-8">
+        <div className="flex flex-col items-center justify-center flex-1 w-full px-4 text-center lg:w-4/5 xl:w-1/2 sm:mt-10 sm:flex-row sm:gap-8 sm:items-start">
           <div className="sm:w-1/2">
-            <h1 className="max-w-[708px] text-base font-bold text-slate-900 sm:text-xl">
-              Get help on your budget using GPT
+            <h1 className="max-w-[708px] mx-auto text-3xl text-slate-900">
+              Get help on your event budget👋
             </h1>
-            <div className="w-full max-w-xl">
+            <div className="w-full max-w-xl mt-4">
               <div className="flex items-center mb-5 space-x-3">
-                <p className="font-medium text-left">1. Input Monthly Income</p>
+                <p className="font-medium text-left">1. Input Total Budget</p>
               </div>
               <div className="block">
                 <input
-                  value={monthlyIncome}
-                  onChange={(e) => setMonthlyIncome(e.target.value)}
+                  value={totalBudget}
+                  onChange={(e) => setTotalBudget(e.target.value)}
                   type="number"
                   className="w-full"
                   required
@@ -109,7 +104,7 @@ const Home: NextPage = () => {
                 placeholder={userLocation}
               />
               <div className="flex items-center mb-5 space-x-3">
-                <p className="font-medium text-left">3. Select Section</p>
+                <p className="font-medium text-left">3. Select Event Type</p>
               </div>
               <div className="block">
                 <DropDown
@@ -119,8 +114,10 @@ const Home: NextPage = () => {
               </div>
               <div className="flex items-center mt-2 space-x-3">
                 <p className="font-medium text-left">
-                  4. Input Budget Plan{' '}
-                  <span className="text-slate-500">(just one category)</span>
+                  4. Event Details{' '}
+                  <span className="text-slate-500">
+                    (or ask your questions!)
+                  </span>
                 </p>
               </div>
               <textarea
@@ -133,7 +130,7 @@ const Home: NextPage = () => {
 
               {!loading && (
                 <button
-                  className="w-full px-4 py-2 mt-8 font-medium text-white bg-black rounded-xl hover:bg-black/80 sm:mt-10"
+                  className="w-full px-4 py-2 mt-8 font-medium text-white bg-green-400 rounded-xl hover:bg-green-600 sm:mt-10"
                   onClick={(e) => generatePlan(e)}
                 >
                   Go &rarr;
@@ -141,7 +138,7 @@ const Home: NextPage = () => {
               )}
               {loading && (
                 <button
-                  className="w-full px-4 py-2 mt-8 font-medium text-white bg-black rounded-xl hover:bg-black/80 sm:mt-10"
+                  className="w-full px-4 py-2 mt-8 font-medium text-white bg-green-400 rounded-xl hover:bg-green-600 sm:mt-10"
                   disabled
                 >
                   <LoadingDots color="white" style="large" />
@@ -155,29 +152,21 @@ const Home: NextPage = () => {
             />
           </div>
           <div className="sm:w-1/2">
-            <hr className="h-px bg-gray-700 border dark:bg-gray-700" />
-            <div className="my-20 space-y-10">
+            {/* <hr className="h-px bg-gray-700 border dark:bg-gray-700" /> */}
+            <div className="space-y-10">
               {generatedPlan && (
                 <>
                   <div>
                     <h2
-                      className="mx-auto text-3xl font-bold text-slate-900 sm:text-4xl"
+                      className="mx-auto text-3xl text-slate-900"
                       ref={bioRef}
                     >
-                      Result
+                      Answer🙌
                     </h2>
                   </div>
                   <div className="flex flex-col items-center justify-center max-w-xl mx-auto space-y-8">
                     {generatedPlan.indexOf('1.') === -1 ? (
-                      <div
-                        className="p-4 text-left transition bg-white border shadow-md cursor-copy rounded-xl hover:bg-gray-100"
-                        onClick={() => {
-                          navigator.clipboard.writeText(generatedPlan);
-                          toast('copied to clipboard', {
-                            icon: '✂️',
-                          });
-                        }}
-                      >
+                      <div className="p-4 text-left transition bg-white border shadow-md rounded-xl hover:bg-gray-100">
                         <div
                           dangerouslySetInnerHTML={{
                             __html: generatedPlan.replace(/\n/g, '<br>'),
@@ -191,13 +180,7 @@ const Home: NextPage = () => {
                         .map((generatedBio) => {
                           return (
                             <div
-                              className="p-4 text-left transition bg-white border shadow-md cursor-copy rounded-xl hover:bg-gray-100"
-                              onClick={() => {
-                                navigator.clipboard.writeText(generatedBio);
-                                toast('copied to clipboard', {
-                                  icon: '✂️',
-                                });
-                              }}
+                              className="p-4 text-left transition bg-white border shadow-md rounded-xl hover:bg-gray-100"
                               key={generatedBio}
                             >
                               <div
@@ -214,7 +197,7 @@ const Home: NextPage = () => {
               )}
             </div>
           </div>
-        </main>
+        </div>
       </div>
     </Layout>
   );
