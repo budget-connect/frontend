@@ -1,3 +1,4 @@
+import { PlaidIcon } from '@/assets/icons/plaid-icon';
 import AddBudgetModal from '@/components/Budget/AddBudgetModal';
 import AddExpenseModal from '@/components/Budget/AddExpenseModal';
 import { BudgetExpenseCard } from '@/components/Budget/BudgetExpenseCard';
@@ -38,6 +39,9 @@ const Portfolio = () => {
             </Button>
             <Button onClick={() => setShowAddBudgetModal(true)}>
               Add Budget
+            </Button>
+            <Button color={'light'} outline>
+              Sync with Plaid <PlaidIcon />
             </Button>
           </div>
           <div className="flex flex-col gap-4">
