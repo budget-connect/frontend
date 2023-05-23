@@ -34,7 +34,7 @@ const AddBudgetModal: React.FC<AddBudgetModalProps> = ({
         <Modal.Body>
           <div className="mb-2">
             <div className="mb-2 block">
-              <Label htmlFor="name" value="Name" />
+              <Label htmlFor="name" value="Budget Category" />
             </div>
             <TextInput
               ref={nameRef}

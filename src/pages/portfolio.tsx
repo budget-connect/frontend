@@ -1,6 +1,6 @@
 import AddBudgetModal from '@/components/Budget/AddBudgetModal';
 import AddExpenseModal from '@/components/Budget/AddExpenseModal';
-import BudgetCard from '@/components/Budget/BudgetCard';
+import { BudgetExpenseCard } from '@/components/Budget/BudgetExpenseCard';
 import TotalBudgetCard from '@/components/Budget/TotalBudgetCard';
 import UncategorizedBudgetCard from '@/components/Budget/UncategorizedBudgetCard';
 import ViewExpensesModal from '@/components/Budget/ViewExpensesModal';
@@ -28,25 +28,23 @@ const Portfolio = () => {
   return (
     <>
       <Layout>
-        <div className="container mx-auto my-4 mt-16">
+        <div className="container mx-auto my-4 mt-16 max-w-4xl">
           <div className="mb-4 flex justify-end space-x-2">
             <Button onClick={() => setShowAddBudgetModal(true)}>
               Add Budget
             </Button>
-            <Button outline onClick={() => openAddExpenseModal(undefined)}>
-              Add Expense
-            </Button>
           </div>
           <div className="flex flex-col gap-4">
             <TotalBudgetCard />
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4">
               {budgets.map((budget) => {
                 const amount = getBudgetExpenses(budget.id).reduce(
                   (total, expense) => total + expense.amount,
                   0
                 );
                 return (
-                  <BudgetCard
+                  <BudgetExpenseCard
+                    budgetId={budget.id}
                     key={budget.id}
                     name={budget.name}
                     amount={amount}
