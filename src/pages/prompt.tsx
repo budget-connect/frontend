@@ -167,33 +167,13 @@ const Home: NextPage = () => {
                     </h2>
                   </div>
                   <div className="flex flex-col items-center justify-center max-w-xl mx-auto space-y-8">
-                    {generatedPlan.indexOf('1.') === -1 ? (
-                      <div className="p-4 text-left transition bg-white border shadow-md rounded-xl hover:bg-gray-100">
-                        <div
-                          dangerouslySetInnerHTML={{
-                            __html: generatedPlan.replace(/\n/g, '<br>'),
-                          }}
-                        />
-                      </div>
-                    ) : (
-                      generatedPlan
-                        .substring(generatedPlan.indexOf('1') + 3)
-                        .split('2.')
-                        .map((generatedBio) => {
-                          return (
-                            <div
-                              className="p-4 text-left transition bg-white border shadow-md rounded-xl hover:bg-gray-100"
-                              key={generatedBio}
-                            >
-                              <div
-                                dangerouslySetInnerHTML={{
-                                  __html: generatedBio.replace(/\n/g, '<br>'),
-                                }}
-                              />
-                            </div>
-                          );
-                        })
-                    )}
+                    <div className="p-4 text-left transition bg-white border shadow-md rounded-xl hover:bg-gray-100">
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: generatedPlan.replace(/\n/g, '<br>'),
+                        }}
+                      />
+                    </div>
                   </div>
                 </>
               )}
