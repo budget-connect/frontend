@@ -33,7 +33,8 @@ const BudgetCard: React.FC<BudgetCardProps> = ({
     <Card
       className={twMerge(
         max !== undefined && amount > max ? 'bg-red-500 bg-opacity-10' : '',
-        gray ? 'bg-gray-100' : '' // last conflicting class wins
+        gray ? 'bg-gray-100' : '', // last conflicting class wins
+        'w-full'
       )}
     >
       <div className="flex items-center justify-between">
@@ -41,7 +42,7 @@ const BudgetCard: React.FC<BudgetCardProps> = ({
           <div className="me-2 text-lg font-bold">{name}</div>
           <div className="flex items-baseline">
             {currencyFormatter.format(amount)}
-            {max && (
+            {max !== undefined && (
               <span className="ml-1 text-sm text-gray-500">
                 / {currencyFormatter.format(max)}
               </span>
@@ -50,14 +51,12 @@ const BudgetCard: React.FC<BudgetCardProps> = ({
         </div>
         {askAiButton}
       </div>
-      {max && (
+      {max !== undefined && (
         <Progress
-          className="rounded-full"
           color={getProgressBarVariant(amount, max)}
-          // max={max}
           size="lg"
-          labelProgress={true}
-          progress={Number(Math.round((amount / max) * 100))}
+          labelProgress
+          progress={max !== 0 ? Number(Math.round((amount / max) * 100)) : 100}
           progressLabelPosition="inside"
         />
       )}

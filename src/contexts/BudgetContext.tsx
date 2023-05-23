@@ -18,11 +18,13 @@ export interface Budget {
 interface BudgetsContextType {
   budgets: Budget[];
   expenses: Expense[];
+  income: number;
   getBudgetExpenses: (budgetId: string) => Expense[];
   addExpense: (expense: Omit<Expense, 'id'>) => void;
   addBudget: (budget: Omit<Budget, 'id'>) => void;
   deleteBudget: (budget: Pick<Budget, 'id'>) => void;
   deleteExpense: (expense: Pick<Expense, 'id'>) => void;
+  setIncome: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const BudgetsContext = React.createContext<BudgetsContextType | undefined>(
@@ -51,6 +53,7 @@ export const BudgetsProvider = ({
 }) => {
   const [budgets, setBudgets] = useLocalStorage<Budget[]>('budgets', []);
   const [expenses, setExpenses] = useLocalStorage<Expense[]>('expenses', []);
+  const [income, setIncome] = useLocalStorage<number>('income', 0);
 
   function getBudgetExpenses(budgetId: string): Expense[] {
     return expenses.filter((expense) => expense.budgetId === budgetId);
@@ -91,18 +94,20 @@ export const BudgetsProvider = ({
     );
   }
 
-  const contextValue: BudgetsContextType = {
-    budgets,
-    expenses,
-    getBudgetExpenses,
-    addExpense,
-    addBudget,
-    deleteBudget,
-    deleteExpense,
-  };
-
   return (
-    <BudgetsContext.Provider value={contextValue}>
+    <BudgetsContext.Provider
+      value={{
+        budgets,
+        expenses,
+        income,
+        getBudgetExpenses,
+        addExpense,
+        addBudget,
+        deleteBudget,
+        deleteExpense,
+        setIncome,
+      }}
+    >
       {children}
     </BudgetsContext.Provider>
   );
