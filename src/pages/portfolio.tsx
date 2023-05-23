@@ -1,6 +1,5 @@
 import AddBudgetModal from '@/components/Budget/AddBudgetModal';
 import AddExpenseModal from '@/components/Budget/AddExpenseModal';
-import AggregatedData from '@/components/Budget/AggregatedData';
 import { BudgetExpenseCard } from '@/components/Budget/BudgetExpenseCard';
 import TotalBudgetCard from '@/components/Budget/TotalBudgetCard';
 import UncategorizedBudgetCard from '@/components/Budget/UncategorizedBudgetCard';
