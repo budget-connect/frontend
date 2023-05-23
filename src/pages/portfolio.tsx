@@ -1,5 +1,6 @@
 import AddBudgetModal from '@/components/Budget/AddBudgetModal';
 import AddExpenseModal from '@/components/Budget/AddExpenseModal';
+import AggregatedData from '@/components/Budget/AggregatedData';
 import { BudgetExpenseCard } from '@/components/Budget/BudgetExpenseCard';
 import TotalBudgetCard from '@/components/Budget/TotalBudgetCard';
 import UncategorizedBudgetCard from '@/components/Budget/UncategorizedBudgetCard';
@@ -8,7 +9,6 @@ import Layout from '@/components/Layout/Layout';
 import { UNCATEGORIZED_BUDGET_ID, useBudgets } from '@/contexts/BudgetContext';
 import { Button } from 'flowbite-react';
 import { useState } from 'react';
-import Analytics from './analytics';
 
 const Portfolio = () => {
   const [showAddBudgetModal, setShowAddBudgetModal] = useState(false);
@@ -29,8 +29,7 @@ const Portfolio = () => {
   return (
     <>
       <Layout>
-        <Analytics />
-        <div className="container mx-auto my-4 mt-16 max-w-3xl">
+        <div className="container mx-auto my-4 mt-16 max-w-4xl">
           <div className="mb-4 flex justify-end space-x-2">
             <Button onClick={() => setShowAddBudgetModal(true)}>
               Add Budget
