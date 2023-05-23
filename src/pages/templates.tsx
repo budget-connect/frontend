@@ -8,20 +8,20 @@ export const dynamic = 'force-dynamic';
 const templates = [
   {
     id: '1',
-    name: 'Super Savings Goal',
-    usecase: 'string',
+    name: 'Student Savings Goal',
+    usecase: "A financial target set by students to save money for various purposes during their academic journey. ",
     price: 'free',
   },
   {
     id: '2',
     name: 'Wedding Savings Goal',
-    usecase: 'string',
+    usecase: 'It refers to a financial target set by couples who are planning to get married. ',
     price: 'free',
   },
   {
     id: '3',
     name: 'Retired Savings Goal',
-    usecase: 'string',
+    usecase: "It refers to the financial target set by individuals or couples who are planning for their retirement. ",
     price: 'premium',
   },
 ];
