@@ -10,6 +10,7 @@ export interface BudgetCardProps {
   hideButtons?: boolean;
   expenses?: React.ReactNode;
   deleteButton?: React.ReactNode;
+  askAiButton?: React.ReactNode;
   isUncatagorized?: boolean;
   onAddExpenseClick?: () => void;
   onViewExpensesClick?: () => void;
@@ -23,6 +24,7 @@ const BudgetCard: React.FC<BudgetCardProps> = ({
   hideButtons,
   expenses,
   deleteButton,
+  askAiButton,
   isUncatagorized,
   onAddExpenseClick,
   onViewExpensesClick,
@@ -34,16 +36,19 @@ const BudgetCard: React.FC<BudgetCardProps> = ({
         gray ? 'bg-gray-100' : '' // last conflicting class wins
       )}
     >
-      <div className="mb-2 items-baseline justify-between font-normal">
-        <div className="me-2 text-lg font-bold">{name}</div>
-        <div className="flex items-baseline">
-          {currencyFormatter.format(amount)}
-          {max && (
-            <span className="ml-1 text-sm text-gray-500">
-              / {currencyFormatter.format(max)}
-            </span>
-          )}
+      <div className="flex items-center justify-between">
+        <div className="mb-2 items-baseline justify-between font-normal">
+          <div className="me-2 text-lg font-bold">{name}</div>
+          <div className="flex items-baseline">
+            {currencyFormatter.format(amount)}
+            {max && (
+              <span className="ml-1 text-sm text-gray-500">
+                / {currencyFormatter.format(max)}
+              </span>
+            )}
+          </div>
         </div>
+        {askAiButton}
       </div>
       {max && (
         <Progress
@@ -58,7 +63,7 @@ const BudgetCard: React.FC<BudgetCardProps> = ({
       )}
       {expenses}
       {!hideButtons && (
-        <div className="mt-4 flex gap-x-2 justify-end">
+        <div className="mt-4 flex justify-end gap-x-2">
           {deleteButton}
           {!isUncatagorized && (
             <Button

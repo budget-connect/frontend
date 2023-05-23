@@ -79,15 +79,15 @@ const Home: NextPage = () => {
 
   return (
     <Layout>
-      <div className="flex flex-col items-center justify-center w-full py-2 mx-auto">
-        <main className="flex flex-col items-center justify-center flex-1 w-full px-4 text-center sm:mt-2 sm:flex-row sm:gap-8">
+      <div className="mx-auto flex w-full flex-col items-center justify-center py-2">
+        <main className="flex w-full flex-1 flex-col items-center justify-center px-4 text-center sm:mt-2 sm:flex-row sm:gap-8">
           <div className="sm:w-1/2">
             <h1 className="max-w-[708px] text-base font-bold text-slate-900 sm:text-xl">
               Get help on your budget using GPT
             </h1>
             <div className="w-full max-w-xl">
-              <div className="flex items-center mb-5 space-x-3">
-                <p className="font-medium text-left">1. Input Monthly Income</p>
+              <div className="mb-5 flex items-center space-x-3">
+                <p className="text-left font-medium">1. Input Monthly Income</p>
               </div>
               <div className="block">
                 <input
@@ -98,18 +98,18 @@ const Home: NextPage = () => {
                   required
                 />
               </div>
-              <div className="flex items-center mt-2 space-x-3">
-                <p className="font-medium text-left">2. Set Location</p>
+              <div className="mt-2 flex items-center space-x-3">
+                <p className="text-left font-medium">2. Set Location</p>
               </div>
               <textarea
                 value={userLocation}
                 onChange={(e) => setUserLocation(e.target.value)}
                 rows={1}
-                className="w-full my-5 border-gray-300 rounded-md shadow-sm focus:border-black focus:ring-black"
+                className="my-5 w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black"
                 placeholder={userLocation}
               />
-              <div className="flex items-center mb-5 space-x-3">
-                <p className="font-medium text-left">3. Select Section</p>
+              <div className="mb-5 flex items-center space-x-3">
+                <p className="text-left font-medium">3. Select Section</p>
               </div>
               <div className="block">
                 <DropDown
@@ -117,8 +117,8 @@ const Home: NextPage = () => {
                   setCategory={(newCategory) => setSection(newCategory)}
                 />
               </div>
-              <div className="flex items-center mt-2 space-x-3">
-                <p className="font-medium text-left">
+              <div className="mt-2 flex items-center space-x-3">
+                <p className="text-left font-medium">
                   4. Input Budget Plan{' '}
                   <span className="text-slate-500">(just one category)</span>
                 </p>
@@ -127,13 +127,13 @@ const Home: NextPage = () => {
                 value={userInput}
                 onChange={(e) => setUserInput(e.target.value)}
                 rows={15}
-                className="w-full my-5 border-gray-300 rounded-md shadow-sm focus:border-black focus:ring-black"
+                className="my-5 w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black"
                 placeholder={sampleFoodBudget}
               />
 
               {!loading && (
                 <button
-                  className="w-full px-4 py-2 mt-8 font-medium text-white bg-black rounded-xl hover:bg-black/80 sm:mt-10"
+                  className="mt-8 w-full rounded-xl bg-black px-4 py-2 font-medium text-white hover:bg-black/80 sm:mt-10"
                   onClick={(e) => generatePlan(e)}
                 >
                   Go &rarr;
@@ -141,7 +141,7 @@ const Home: NextPage = () => {
               )}
               {loading && (
                 <button
-                  className="w-full px-4 py-2 mt-8 font-medium text-white bg-black rounded-xl hover:bg-black/80 sm:mt-10"
+                  className="mt-8 w-full rounded-xl bg-black px-4 py-2 font-medium text-white hover:bg-black/80 sm:mt-10"
                   disabled
                 >
                   <LoadingDots color="white" style="large" />
@@ -155,7 +155,7 @@ const Home: NextPage = () => {
             />
           </div>
           <div className="sm:w-1/2">
-            <hr className="h-px bg-gray-700 border dark:bg-gray-700" />
+            <hr className="h-px border bg-gray-700 dark:bg-gray-700" />
             <div className="my-20 space-y-10">
               {generatedPlan && (
                 <>
@@ -167,10 +167,10 @@ const Home: NextPage = () => {
                       Result
                     </h2>
                   </div>
-                  <div className="flex flex-col items-center justify-center max-w-xl mx-auto space-y-8">
+                  <div className="mx-auto flex max-w-xl flex-col items-center justify-center space-y-8">
                     {generatedPlan.indexOf('1.') === -1 ? (
                       <div
-                        className="p-4 text-left transition bg-white border shadow-md cursor-copy rounded-xl hover:bg-gray-100"
+                        className="cursor-copy rounded-xl border bg-white p-4 text-left shadow-md transition hover:bg-gray-100"
                         onClick={() => {
                           navigator.clipboard.writeText(generatedPlan);
                           toast('copied to clipboard', {
@@ -191,7 +191,7 @@ const Home: NextPage = () => {
                         .map((generatedBio) => {
                           return (
                             <div
-                              className="p-4 text-left transition bg-white border shadow-md cursor-copy rounded-xl hover:bg-gray-100"
+                              className="cursor-copy rounded-xl border bg-white p-4 text-left shadow-md transition hover:bg-gray-100"
                               onClick={() => {
                                 navigator.clipboard.writeText(generatedBio);
                                 toast('copied to clipboard', {
