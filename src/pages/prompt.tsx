@@ -4,8 +4,8 @@ import { Toaster, toast } from 'react-hot-toast';
 import LoadingDots from '../components/LoadingDots';
 import Layout from '@/components/Layout/Layout';
 import { Button, Label, Select, TextInput, Textarea } from 'flowbite-react';
-import { EVENT_CATEGORIES } from '@/data/events';
 import { ArrowRightIcon } from '@heroicons/react/20/solid';
+import { EVENT_CATEGORIES } from '@/data/events';
 
 const sampleFoodBudget = `I'm planning a birthday party for my son. Right now I'm thinking of catering food for 20 people. I also need a venue.`;
 
