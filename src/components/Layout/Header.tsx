@@ -16,8 +16,8 @@ const links = [
     href: '/templates',
   },
   {
-    name: 'Events',
-    href: '/events',
+    name: 'Personal Assistant',
+    href: '/prompt',
   },
   {
     name: 'Analytics',
