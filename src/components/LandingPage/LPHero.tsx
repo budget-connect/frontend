@@ -13,9 +13,9 @@ const LPHero: React.FC<ILPHeroProps> = () => {
           <div className="flex flex-col items-center justify-between lg:flex-row">
             <div>
               <div className="lg:max-w-3xl lg:pr-5">
-                <h2 className="mb-6 max-w-2xl text-3xl font-semibold leading-snug tracking-tight md:text-5xl lg:text-6xl">
+                <h1 className="mb-6 max-w-2xl text-3xl font-semibold leading-snug tracking-tight md:text-5xl lg:text-6xl">
                   Transforming Savings and Investing Habits
-                </h2>
+                </h1>
                 <p className="text-lg">
                   Did you know that despite acknowledging the importance of
                   investing, many people struggle with developing healthy

@@ -4,11 +4,13 @@ import { Toaster, toast } from 'react-hot-toast';
 import DropDown from '../components/DropDown';
 import LoadingDots from '../components/LoadingDots';
 import Layout from '@/components/Layout/Layout';
+import { Button, Label, TextInput, Textarea } from 'flowbite-react';
+import { ArrowRightIcon } from '@heroicons/react/20/solid';
 
-const sampleFoodBudget = `I'm planning a birthday party for my son. Right now I'm thinking of catering food for 20 people. I also need a venue`;
+const sampleFoodBudget = `I'm planning a birthday party for my son. Right now I'm thinking of catering food for 20 people. I also need a venue.`;
 
 const Home: NextPage = () => {
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [userInput, setUserInput] = useState('');
   const [section, setSection] = useState<string>('Birthday Parties');
   const [generatedPlan, setGeneratedPlan] = useState('');
@@ -29,15 +31,15 @@ const Home: NextPage = () => {
   const generatePlan = async (e: any) => {
     e.preventDefault();
     setGeneratedPlan('');
-    setLoading(true);
+    setIsLoading(true);
     if (!totalBudget) {
       toast.error('Please input your total budget');
-      setLoading(false);
+      setIsLoading(false);
       return;
     }
     if (!userInput) {
       toast.error('Please input some event details or questions');
-      setLoading(false);
+      setIsLoading(false);
       return;
     }
     const response = await fetch('/api/prompt', {
@@ -71,80 +73,87 @@ const Home: NextPage = () => {
       setGeneratedPlan((prev) => prev + chunkValue);
     }
     scrollToBios();
-    setLoading(false);
+    setIsLoading(false);
   };
 
   return (
     <Layout>
-      <div className="flex flex-col items-center justify-center w-full py-2 mx-auto">
-        <div className="flex flex-col items-center justify-center flex-1 w-full px-4 text-center sm:mt-10 sm:flex-row sm:items-start sm:gap-8 lg:w-4/5 xl:w-1/2">
-          <div className="sm:w-1/2">
-            <h1 className="mx-auto max-w-[708px] text-3xl text-slate-900">
-              Get help on your event budget👋
+      <div className="container mx-auto flex flex-col items-center justify-center pb-12">
+        <div className="flex w-full flex-1 flex-col items-center justify-center px-10 text-center sm:mt-10 sm:flex-row sm:items-start sm:gap-8">
+          <div className="">
+            <h1 className="mx-auto text-3xl font-semibold leading-snug tracking-tight lg:text-4xl">
+              Get help on your event budget 👋
             </h1>
-            <div className="w-full max-w-xl mt-4">
-              <div className="flex items-center mb-5 space-x-3">
-                <p className="font-medium text-left">1. Input Total Budget</p>
-              </div>
-              <div className="block">
-                <input
+            <div className="mt-4 w-full space-y-4 text-left">
+              <div>
+                <Label htmlFor="total-budget" className="text-lg">
+                  1. Input Total Budget
+                </Label>
+                <TextInput
+                  id="total-budget"
                   value={totalBudget}
                   onChange={(e) => setTotalBudget(e.target.value)}
                   type="number"
-                  className="w-full"
+                  required
+                  className="pt-2"
+                />
+              </div>
+              <div>
+                <Label htmlFor="location" className="text-lg">
+                  2. Set Location
+                </Label>
+                <TextInput
+                  id="location"
+                  value={userLocation}
+                  onChange={(e) => setUserLocation(e.target.value)}
+                  className="pt-2"
+                  placeholder={userLocation}
                   required
                 />
               </div>
-              <div className="flex items-center mt-2 space-x-3">
-                <p className="font-medium text-left">2. Set Location</p>
-              </div>
-              <textarea
-                value={userLocation}
-                onChange={(e) => setUserLocation(e.target.value)}
-                rows={1}
-                className="w-full my-5 border-gray-300 rounded-md shadow-sm focus:border-black focus:ring-black"
-                placeholder={userLocation}
-              />
-              <div className="flex items-center mb-5 space-x-3">
-                <p className="font-medium text-left">3. Select Event Type</p>
-              </div>
-              <div className="block">
+              <div>
+                <Label htmlFor="event" className="text-lg">
+                  3. Select Event Type
+                </Label>
                 <DropDown
                   category={section}
                   setCategory={(newCategory) => setSection(newCategory)}
                 />
               </div>
-              <div className="flex items-center mt-2 space-x-3">
-                <p className="font-medium text-left">
+              <div>
+                <Label htmlFor="details" className="text-lg">
                   4. Event Details{' '}
                   <span className="text-slate-500">
                     (or ask your questions!)
                   </span>
-                </p>
+                </Label>
+                <Textarea
+                  id="details"
+                  value={userInput}
+                  onChange={(e) => setUserInput(e.target.value)}
+                  rows={15}
+                  className="mt-2"
+                  placeholder={sampleFoodBudget}
+                  required
+                />
               </div>
-              <textarea
-                value={userInput}
-                onChange={(e) => setUserInput(e.target.value)}
-                rows={15}
-                className="w-full my-5 border-gray-300 rounded-md shadow-sm focus:border-black focus:ring-black"
-                placeholder={sampleFoodBudget}
-              />
 
-              {!loading && (
-                <button
-                  className="w-full px-4 py-2 mt-8 font-medium text-white bg-green-400 rounded-xl hover:bg-green-600 sm:mt-10"
-                  onClick={(e) => generatePlan(e)}
-                >
-                  Go &rarr;
-                </button>
-              )}
-              {loading && (
-                <button
-                  className="w-full px-4 py-2 mt-8 font-medium text-white bg-green-400 rounded-xl hover:bg-green-600 sm:mt-10"
+              {isLoading ? (
+                <Button
+                  color="success"
+                  className="mt-4 h-10 w-full sm:mt-6"
                   disabled
                 >
                   <LoadingDots color="white" style="large" />
-                </button>
+                </Button>
+              ) : (
+                <Button
+                  color="success"
+                  className="mt-4 h-10 w-full sm:mt-6"
+                  onClick={(e) => generatePlan(e)}
+                >
+                  Go <ArrowRightIcon className="h-5 w-5 pt-1" />
+                </Button>
               )}
             </div>
             <Toaster
@@ -166,8 +175,8 @@ const Home: NextPage = () => {
                       Answer🙌
                     </h2>
                   </div>
-                  <div className="flex flex-col items-center justify-center max-w-xl mx-auto space-y-8">
-                    <div className="p-4 text-left transition bg-white border shadow-md rounded-xl hover:bg-gray-100">
+                  <div className="mx-auto flex flex-col items-center justify-center space-y-8">
+                    <div className="rounded-xl border bg-white p-4 text-left shadow-md transition hover:bg-gray-100">
                       <div
                         dangerouslySetInnerHTML={{
                           __html: generatedPlan.replace(/\n/g, '<br>'),
