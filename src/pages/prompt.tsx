@@ -76,15 +76,15 @@ const Home: NextPage = () => {
 
   return (
     <Layout>
-      <div className="mx-auto flex w-full flex-col items-center justify-center py-2">
-        <div className="flex w-full flex-1 flex-col items-center justify-center px-4 text-center sm:mt-10 sm:flex-row sm:items-start sm:gap-8 lg:w-4/5 xl:w-1/2">
+      <div className="flex flex-col items-center justify-center w-full py-2 mx-auto">
+        <div className="flex flex-col items-center justify-center flex-1 w-full px-4 text-center sm:mt-10 sm:flex-row sm:items-start sm:gap-8 lg:w-4/5 xl:w-1/2">
           <div className="sm:w-1/2">
             <h1 className="mx-auto max-w-[708px] text-3xl text-slate-900">
               Get help on your event budget👋
             </h1>
-            <div className="mt-4 w-full max-w-xl">
-              <div className="mb-5 flex items-center space-x-3">
-                <p className="text-left font-medium">1. Input Total Budget</p>
+            <div className="w-full max-w-xl mt-4">
+              <div className="flex items-center mb-5 space-x-3">
+                <p className="font-medium text-left">1. Input Total Budget</p>
               </div>
               <div className="block">
                 <input
@@ -95,18 +95,18 @@ const Home: NextPage = () => {
                   required
                 />
               </div>
-              <div className="mt-2 flex items-center space-x-3">
-                <p className="text-left font-medium">2. Set Location</p>
+              <div className="flex items-center mt-2 space-x-3">
+                <p className="font-medium text-left">2. Set Location</p>
               </div>
               <textarea
                 value={userLocation}
                 onChange={(e) => setUserLocation(e.target.value)}
                 rows={1}
-                className="my-5 w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black"
+                className="w-full my-5 border-gray-300 rounded-md shadow-sm focus:border-black focus:ring-black"
                 placeholder={userLocation}
               />
-              <div className="mb-5 flex items-center space-x-3">
-                <p className="text-left font-medium">3. Select Event Type</p>
+              <div className="flex items-center mb-5 space-x-3">
+                <p className="font-medium text-left">3. Select Event Type</p>
               </div>
               <div className="block">
                 <DropDown
@@ -114,8 +114,8 @@ const Home: NextPage = () => {
                   setCategory={(newCategory) => setSection(newCategory)}
                 />
               </div>
-              <div className="mt-2 flex items-center space-x-3">
-                <p className="text-left font-medium">
+              <div className="flex items-center mt-2 space-x-3">
+                <p className="font-medium text-left">
                   4. Event Details{' '}
                   <span className="text-slate-500">
                     (or ask your questions!)
@@ -126,13 +126,13 @@ const Home: NextPage = () => {
                 value={userInput}
                 onChange={(e) => setUserInput(e.target.value)}
                 rows={15}
-                className="my-5 w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black"
+                className="w-full my-5 border-gray-300 rounded-md shadow-sm focus:border-black focus:ring-black"
                 placeholder={sampleFoodBudget}
               />
 
               {!loading && (
                 <button
-                  className="mt-8 w-full rounded-xl bg-green-400 px-4 py-2 font-medium text-white hover:bg-green-600 sm:mt-10"
+                  className="w-full px-4 py-2 mt-8 font-medium text-white bg-green-400 rounded-xl hover:bg-green-600 sm:mt-10"
                   onClick={(e) => generatePlan(e)}
                 >
                   Go &rarr;
@@ -140,7 +140,7 @@ const Home: NextPage = () => {
               )}
               {loading && (
                 <button
-                  className="mt-8 w-full rounded-xl bg-green-400 px-4 py-2 font-medium text-white hover:bg-green-600 sm:mt-10"
+                  className="w-full px-4 py-2 mt-8 font-medium text-white bg-green-400 rounded-xl hover:bg-green-600 sm:mt-10"
                   disabled
                 >
                   <LoadingDots color="white" style="large" />
@@ -166,34 +166,14 @@ const Home: NextPage = () => {
                       Answer🙌
                     </h2>
                   </div>
-                  <div className="mx-auto flex max-w-xl flex-col items-center justify-center space-y-8">
-                    {generatedPlan.indexOf('1.') === -1 ? (
-                      <div className="rounded-xl border bg-white p-4 text-left shadow-md transition hover:bg-gray-100">
-                        <div
-                          dangerouslySetInnerHTML={{
-                            __html: generatedPlan.replace(/\n/g, '<br>'),
-                          }}
-                        />
-                      </div>
-                    ) : (
-                      generatedPlan
-                        .substring(generatedPlan.indexOf('1') + 3)
-                        .split('2.')
-                        .map((generatedBio) => {
-                          return (
-                            <div
-                              className="rounded-xl border bg-white p-4 text-left shadow-md transition hover:bg-gray-100"
-                              key={generatedBio}
-                            >
-                              <div
-                                dangerouslySetInnerHTML={{
-                                  __html: generatedBio.replace(/\n/g, '<br>'),
-                                }}
-                              />
-                            </div>
-                          );
-                        })
-                    )}
+                  <div className="flex flex-col items-center justify-center max-w-xl mx-auto space-y-8">
+                    <div className="p-4 text-left transition bg-white border shadow-md rounded-xl hover:bg-gray-100">
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: generatedPlan.replace(/\n/g, '<br>'),
+                        }}
+                      />
+                    </div>
                   </div>
                 </>
               )}
