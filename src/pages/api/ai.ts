@@ -52,6 +52,10 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
+  if (req.method !== 'POST') {
+    res.status(405).json({ message: 'Method not allowed' });
+    return;
+  }
   try {
     const { prompt } = req.body as RequestData;
     const response = await openai.createChatCompletion({
