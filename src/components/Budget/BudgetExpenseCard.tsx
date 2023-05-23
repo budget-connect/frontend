@@ -1,6 +1,4 @@
 import {
-  Budget,
-  Expense,
   UNCATEGORIZED_BUDGET,
   UNCATEGORIZED_BUDGET_ID,
   useBudgets,
@@ -10,6 +8,7 @@ import { Button } from 'flowbite-react';
 import { currencyFormatter } from './utils';
 import { useState } from 'react';
 import AskAiModal from './AskAiModal';
+import generatePrompt from '@/utils/generatePrompt';
 
 interface BudgetExpenseCardProps {
   budgetId: string;
@@ -19,7 +18,7 @@ export const BudgetExpenseCard: React.FC<
   BudgetExpenseCardProps & BudgetCardProps
 > = ({ budgetId, ...props }) => {
   const [showAskAiModal, setShowAskAiModal] = useState(false);
-  const { getBudgetExpenses, budgets, deleteBudget, deleteExpense } =
+  const { getBudgetExpenses, income, budgets, deleteBudget, deleteExpense } =
     useBudgets();
 
   const expenses = getBudgetExpenses(budgetId);
@@ -87,7 +86,7 @@ export const BudgetExpenseCard: React.FC<
         show={showAskAiModal}
         prompt={
           budget !== undefined
-            ? generatePrompt(3000, 'singapore', props.name, budget, expenses)
+            ? generatePrompt(income, 'singapore', props.name, budget.max, expenses)
             : ''
         }
         handleClose={() => setShowAskAiModal(false)}
@@ -95,22 +94,3 @@ export const BudgetExpenseCard: React.FC<
     </>
   );
 };
-
-function generatePrompt(
-  monthlyIncome: number,
-  categoryName: string,
-  location: string,
-  budget: Budget,
-  expenses: Expense[]
-) {
-  return `monthly income is ${monthlyIncome}, location is ${location}, category is ${categoryName}, total budget is ${
-    budget.max
-  }${
-    expenses.length > 0
-      ? ', ' +
-        expenses
-          .map((expense) => expense.description + ' is ' + expense.amount)
-          .join(', ')
-      : ''
-  }`;
-}

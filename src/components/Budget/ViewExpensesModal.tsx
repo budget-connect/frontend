@@ -36,7 +36,7 @@ const ViewExpensesModal: React.FC<ViewExpensesModalProps> = ({
         <div className="flex flex-col gap-4">
           {expenses.map((expense) => (
             <div
-              className="flex flex-row gap-2 items-center border-dashed border-b pb-2"
+              className="flex flex-row items-center gap-2 border-b border-dashed pb-2"
               key={expense.id}
             >
               <div className="me-auto text-lg font-semibold">
