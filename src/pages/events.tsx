@@ -62,8 +62,8 @@ const categories: {
   },
   {
     title: 'Budget',
-    metric: '1,072',
-    metricPrev: '856',
+    metric: '$ 1,072',
+    metricPrev: '$ 856',
   },
 ];
 
