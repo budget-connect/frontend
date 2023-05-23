@@ -8,6 +8,9 @@ export interface BudgetCardProps {
   max?: number;
   gray?: boolean;
   hideButtons?: boolean;
+  expenses?: React.ReactNode;
+  deleteButton?: React.ReactNode;
+  isUncatagorized?: boolean;
   onAddExpenseClick?: () => void;
   onViewExpensesClick?: () => void;
 }
@@ -18,6 +21,9 @@ const BudgetCard: React.FC<BudgetCardProps> = ({
   max,
   gray,
   hideButtons,
+  expenses,
+  deleteButton,
+  isUncatagorized,
   onAddExpenseClick,
   onViewExpensesClick,
 }) => {
@@ -28,7 +34,7 @@ const BudgetCard: React.FC<BudgetCardProps> = ({
         gray ? 'bg-gray-100' : '' // last conflicting class wins
       )}
     >
-      <div className="mb-3 items-baseline justify-between font-normal">
+      <div className="mb-2 items-baseline justify-between font-normal">
         <div className="me-2 text-lg font-bold">{name}</div>
         <div className="flex items-baseline">
           {currencyFormatter.format(amount)}
@@ -47,19 +53,26 @@ const BudgetCard: React.FC<BudgetCardProps> = ({
           size="lg"
           labelProgress={true}
           progress={Number(Math.round((amount / max) * 100))}
+          progressLabelPosition="inside"
         />
       )}
+      {expenses}
       {!hideButtons && (
-        <div className="mt-4 flex gap-x-2">
-          <Button
-            outline={true}
-            gradientDuoTone="cyanToBlue"
-            className="ml-auto"
-            onClick={onAddExpenseClick}
-          >
-            Add Expense
-          </Button>
-          <Button onClick={onViewExpensesClick}>View Expenses</Button>
+        <div className="mt-4 flex gap-x-2 justify-end">
+          {deleteButton}
+          {!isUncatagorized && (
+            <Button
+              outline={true}
+              gradientDuoTone="cyanToBlue"
+              className=""
+              onClick={onAddExpenseClick}
+            >
+              Add Expense
+            </Button>
+          )}
+          {!deleteButton && (
+            <Button onClick={onViewExpensesClick}>View Expenses</Button>
+          )}
         </div>
       )}
     </Card>

@@ -15,7 +15,15 @@ const UncategorizedBudgetCard: React.FC<UncategorizedBudgetCardProps> = (
   );
   if (amount === 0) return null;
 
-  return <BudgetCard {...props} amount={amount} name="Uncategorized" gray />;
+  return (
+    <BudgetCard
+      {...props}
+      amount={amount}
+      name="Uncategorized"
+      gray
+      isUncatagorized
+    />
+  );
 };
 
 export default UncategorizedBudgetCard;
