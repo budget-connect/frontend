@@ -1,5 +1,4 @@
-import { Card, Metric, Text, Flex, Grid, Title, BarList } from '@tremor/react';
-import Layout from '@/components/Layout/Layout';
+import { BarList, Card, Flex, Grid, Metric, Text, Title } from '@tremor/react';
 
 const income = [
   { name: 'salary', value: 1230 },

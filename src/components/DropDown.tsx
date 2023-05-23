@@ -5,7 +5,7 @@ import {
   ChevronUpIcon,
 } from '@heroicons/react/20/solid';
 import { Fragment } from 'react';
-import { CATEGORY_NAMES } from '@/data/categories';
+import { EVENT_CATEGORIES } from '@/data/events';
 import { twMerge } from 'tailwind-merge';
 
 interface DropDownProps {
@@ -13,20 +13,20 @@ interface DropDownProps {
   setCategory: (category: string) => void;
 }
 
-let categories: string[] = CATEGORY_NAMES;
+let categories: string[] = EVENT_CATEGORIES;
 
 export default function DropDown({ category, setCategory }: DropDownProps) {
   return (
     <Menu as="div" className="relative block w-full text-left">
       <div>
-        <Menu.Button className="inline-flex w-full items-center justify-between rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-black">
+        <Menu.Button className="inline-flex items-center justify-between w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-black">
           {category}
           <ChevronUpIcon
-            className="ui-open:hidden -mr-1 ml-2 h-5 w-5"
+            className="w-5 h-5 ml-2 -mr-1 ui-open:hidden"
             aria-hidden="true"
           />
           <ChevronDownIcon
-            className="ui-open:block -mr-1 ml-2 hidden h-5 w-5"
+            className="hidden w-5 h-5 ml-2 -mr-1 ui-open:block"
             aria-hidden="true"
           />
         </Menu.Button>
@@ -42,7 +42,7 @@ export default function DropDown({ category, setCategory }: DropDownProps) {
         leaveTo="transform opacity-0 scale-95"
       >
         <Menu.Items
-          className="absolute left-0 z-10 mt-2 w-full origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          className="absolute left-0 z-10 w-full mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           key={category}
         >
           <div className="">
@@ -59,7 +59,7 @@ export default function DropDown({ category, setCategory }: DropDownProps) {
                   >
                     <span>{categoryItem}</span>
                     {category === categoryItem ? (
-                      <CheckIcon className="h-4 w-4 font-bold" />
+                      <CheckIcon className="w-4 h-4 font-bold" />
                     ) : null}
                   </button>
                 )}
