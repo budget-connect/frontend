@@ -1,11 +1,11 @@
 import type { NextPage } from 'next';
 import { useRef, useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
-import DropDown from '../components/DropDown';
 import LoadingDots from '../components/LoadingDots';
 import Layout from '@/components/Layout/Layout';
-import { Button, Label, TextInput, Textarea } from 'flowbite-react';
+import { Button, Label, Select, TextInput, Textarea } from 'flowbite-react';
 import { ArrowRightIcon } from '@heroicons/react/20/solid';
+import { EVENT_CATEGORIES } from '@/data/events';
 
 const sampleFoodBudget = `I'm planning a birthday party for my son. Right now I'm thinking of catering food for 20 people. I also need a venue.`;
 
@@ -107,6 +107,7 @@ const Home: NextPage = () => {
                   value={userLocation}
                   onChange={(e) => setUserLocation(e.target.value)}
                   className="pt-2"
+                  type="text"
                   placeholder={userLocation}
                   required
                 />
@@ -115,10 +116,19 @@ const Home: NextPage = () => {
                 <Label htmlFor="event" className="text-lg">
                   3. Select Event Type
                 </Label>
-                <DropDown
-                  category={section}
-                  setCategory={(newCategory) => setSection(newCategory)}
-                />
+                <Select
+                  id="event"
+                  required
+                  className="pt-2"
+                  value={section}
+                  onChange={(e) => {
+                    setSection(e.target.value);
+                  }}
+                >
+                  {EVENT_CATEGORIES.map((category) => (
+                    <option key={category}>{category}</option>
+                  ))}
+                </Select>
               </div>
               <div>
                 <Label htmlFor="details" className="text-lg">
@@ -132,7 +142,7 @@ const Home: NextPage = () => {
                   value={userInput}
                   onChange={(e) => setUserInput(e.target.value)}
                   rows={15}
-                  className="mt-2"
+                  className="mt-2 text-sm"
                   placeholder={sampleFoodBudget}
                   required
                 />
@@ -169,10 +179,10 @@ const Home: NextPage = () => {
                 <>
                   <div>
                     <h2
-                      className="mx-auto text-3xl text-slate-900"
+                      className="mx-auto text-3xl font-semibold leading-snug tracking-tight lg:text-4xl"
                       ref={bioRef}
                     >
-                      Answer🙌
+                      Answer 🙌
                     </h2>
                   </div>
                   <div className="mx-auto flex flex-col items-center justify-center space-y-8">
