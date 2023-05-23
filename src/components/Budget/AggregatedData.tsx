@@ -25,18 +25,18 @@ const budget = [
 
 const data = [
   {
-    category: 'Income',
-    stat: '10,234',
+    category: 'Current Income',
+    stat: '$ 10,234',
     data: income,
   },
   {
-    category: 'Expense',
-    stat: '12,543',
+    category: 'Current Expense',
+    stat: '$ 12,543',
     data: expenses,
   },
   {
-    category: 'Budget',
-    stat: '2,543',
+    category: 'Current Budget',
+    stat: '$ 2,543',
     data: budget,
   },
 ];
@@ -50,17 +50,17 @@ const categories: {
   metricPrev: string;
 }[] = [
   {
-    title: 'Income',
+    title: 'Suggested Income',
     metric: '$ 12,699',
     metricPrev: '$ 9,456',
   },
   {
-    title: 'Expense',
+    title: 'Suggested Expense',
     metric: '$ 40,598',
     metricPrev: '$ 45,564',
   },
   {
-    title: 'Budget',
+    title: 'Suggested Budget',
     metric: '$ 1,072',
     metricPrev: '$ 856',
   },
